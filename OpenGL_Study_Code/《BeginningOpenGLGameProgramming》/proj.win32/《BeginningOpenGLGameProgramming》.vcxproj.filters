@@ -29,7 +29,16 @@
     <ClInclude Include="targetver.h">
       <Filter>win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\01-firstGraphics.h">
+    <ClInclude Include="..\Classes\01-windowsInit.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\01-SimpleGraphics.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\02-ComplexGraphics.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\03-drawTRIANGLES.h">
       <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
