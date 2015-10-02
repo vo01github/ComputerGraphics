@@ -75,6 +75,10 @@ we see images correct side up, not upside-down
 
 每个对象只处理一次，
 
+流水线处理对象 的速度，取决于 最慢的那个流程。
+这个称为 瓶颈(bottleneck),我们看最慢的阶段所需的时间，就知道流水线生产的速度。
+
+
 ## 两种渲染方法
 
 ### 画家算法 painter's algorithm
