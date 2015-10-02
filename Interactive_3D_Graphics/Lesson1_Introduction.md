@@ -83,6 +83,16 @@ we see images correct side up, not upside-down
 
 ### 画家算法 painter's algorithm
 
+当物体之间有遮挡的时候：
+先画排在离摄像机最远的物体，再画近的物体。这是一种非常笨的方法。
+计算机用这种算法有一定的道理，因为它是一个画画的有点愚蠢的方法。
+
 第一次建模 ，建的是 茶壶模型。使用了 三次贝塞尔曲线 描述了这些。
 
+缺陷：如何画的物体，叠加部分，互相有重叠，就无能为力了。
+
 ### Z-缓冲算法 Z-Buffer
+
+GPU通常用来解决可见性问题的算法。
+
+https://www.udacity.com/course/viewer#!/c-cs291/l-68866048/m-96403547
