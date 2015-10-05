@@ -68,10 +68,17 @@ G + B = C
 	// 初始化方式2
 	spMaterialVertical.color.setHex(0xA85F35);
 
+
+## The Color Cube
+
+## 练习题：Vertex Attributes
+
+XYZ,RGB,
 	
+
 书签：
 
-https://www.udacity.com/course/viewer#!/c-cs291/l-91376562/m-101541795
+https://www.udacity.com/course/viewer#!/c-cs291/l-91376562/e-151413669/m-151215813
 
 
  
