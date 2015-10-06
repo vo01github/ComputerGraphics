@@ -13,15 +13,15 @@ function fillScene() {
 	geometry = new THREE.Geometry();
 				
 	// Student: add a colored triangle here
-    geometry.vertices.push( new THREE.Vector3( 100, 1, 0 ) );
-	geometry.vertices.push( new THREE.Vector3( 3, 100, 0 ) );
-	geometry.vertices.push( new THREE.Vector3( 3, 3, 0 ) );
+    geometry.vertices.push( new THREE.Vector3( 100, 0, 0 ) );
+	geometry.vertices.push( new THREE.Vector3( 0, 100, 0 ) );
+	geometry.vertices.push( new THREE.Vector3( 0, 0, 100 ) );
 	
 	geometry.faces.push( new THREE.Face3( 0, 1, 2 ) );
     
-    var color1 = new THREE.Color( 0x640000 );
-    var color2 = new THREE.Color( 0x006400 );
-    var color3 = new THREE.Color( 0x000064 );
+    var color1 = new THREE.Color( 0xff0000 );
+    var color2 = new THREE.Color( 0x00ff00 );
+    var color3 = new THREE.Color( 0x0000ff );
     geometry.faces[0].vertexColors = [ color1, color2, color3 ];
 
 	
