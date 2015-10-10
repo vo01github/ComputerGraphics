@@ -1,0 +1,36 @@
+
+
+
+
+CS 466 Computer Graphics Practicum Cornell University
+
+有讲义，不知道 有没有其他东西。
+
+http://www.cs.cornell.edu/Courses/cs465/2007fa/
+
+http://www.cs.cornell.edu/Courses/cs465/2007fa/stuff/03raytracing1_F07.pdf
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------
+
+牛人的练级路线。
+
+
+什么版本都不用管 先实现一遍底层的光栅化的3D渲染算法，只用一个画像素的功能，把插值，zbuffer，alpha，阴影，三角形的光栅化，全自己底层实现一遍，之后进阶挑nvidia 的sdk里的例子逐句看，siggraph早期的gpgpu的论文挑自己觉得有趣的去实现，shaderX，gpu gems里头拿感兴趣的实现，我就是这么过来的，后来去了皮克斯做R&D，现在在Weta Digital做R&D
+
+
+
+
+
+
+
+
+
+
+
