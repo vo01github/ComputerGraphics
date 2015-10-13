@@ -22,9 +22,9 @@ void creat_Line_Point_Set(const Line2D & drawLine, std::vector<Point2D> &pointSe
 
 // 定义要画的直线的集合
 const Line2D  drawLineSet[]	= {
-	{ {0, 0},	{100, 90} },
-	{ {0, 0},	{190, 190} },
-	{ {0, 0},	{190, 50} },
+	{ {0, 0},	{100, 90}	},
+	{ {0, 0},	{190, 190}	},
+	{ {0, 0},	{190, 50}	},
 };		
 std::vector<Point2D> drawPointSet;					// 集成了要画出的点
 
@@ -34,11 +34,16 @@ std::vector<Point2D> drawPointSet;					// 集成了要画出的点
 //
 //=========================================================================
 
-void myDisplay_GL_LINE_LOOP_Draw_Sine_function(void)  
+void myDisplay_Draw_Line_On_Windows_function(void)  
 {  
-	const GLfloat factor = 0.1f;  //缩放因子，将普通正弦函数的图像缩小10倍画到屏幕上。
+	glClear(GL_COLOR_BUFFER_BIT); 
 
-	glClear(GL_COLOR_BUFFER_BIT);  
+	// 画一个矩形框，代表视觉区域
+	glColor3f(1.0, 1.0,1.0);				// 白色
+	glRectf(-scaleScreen,-scaleScreen,scaleScreen,scaleScreen);		//画一个矩形[左下角 + 右上角] 
+
+	// 画个坐标系
+	glColor3f(0.0, 0.0,0.0);
 	glBegin(GL_LINES);  
 	glVertex2f(-1.0f, 0.0f);  
 	glVertex2f(1.0f, 0.0f);         // 以上两个点可以画x轴，坐标原点在正中心。  
@@ -46,8 +51,10 @@ void myDisplay_GL_LINE_LOOP_Draw_Sine_function(void)
 	glVertex2f(0.0f, 1.0f);         // 以上两个点可以画y轴  
 	glEnd();  
 
-	
+	 
 
+
+	glColor3f(1.0, 0.0,0.0);
 	//用描点法画出直线来  
 	glBegin(GL_POINTS); 
 
@@ -59,7 +66,7 @@ void myDisplay_GL_LINE_LOOP_Draw_Sine_function(void)
 		creat_Line_Point_Set(line, drawPointSet);
 		for (const auto & point : drawPointSet)
 		{
-			glVertex2f(point.x *2.0f/ScreenArea.x, point.y*2.0f/ScreenArea.y);		// 坐标转换，转换成 -1.0～1.0的坐标
+			glVertex2f(point.x *2.0f/ScreenSize.x, point.y*2.0f/ScreenSize.y);		// 坐标转换，转换成 -1.0～1.0的坐标
 		}
 	}
 	
@@ -67,6 +74,48 @@ void myDisplay_GL_LINE_LOOP_Draw_Sine_function(void)
 	glEnd();  
 	glFlush();  
 }  
+
+//=========================================================================
+//
+//					 Line clipping algorithm - 2D直线剪切算法
+//
+//=========================================================================
+
+/*
+思路： 直线与矩形框有4种可能。
+1：线段完全在 矩形框内
+2：线段完全不在矩形框内
+3：线段有一半不在矩形框内
+4：线段有2部分不在矩形框内，1部分在矩形框内。
+
+判断思路：
+判断 线段 与 矩形四条边 的交点有几个。
+2个交点，第4种情况。
+1个交点，第3种情况。
+0个交点，需要进行判断是第1种情况 还是 第2种情况。
+
+
+*/
+void create_widows()
+{
+	ClippingSize.LeftDownPoint.x = ScreenSize.x * scaleScreen * (-1.0f);
+	ClippingSize.LeftDownPoint.y = ScreenSize.y * scaleScreen * (-1.0f);
+	ClippingSize.RightUpPoint.x = ScreenSize.x * scaleScreen * (1.0f);
+	ClippingSize.RightUpPoint.y = ScreenSize.y * scaleScreen * (1.0f);
+}
+
+// 判断点是否 在 矩形框内
+bool judgeContinePoint(const Point2D & checkPoint, const Rect2D & checkRect)
+{
+
+}
+
+// 计算出两个线段的交点-点斜式/一般式
+void twoLineIntersection()
+{
+
+}
+
 
 //=========================================================================
 //

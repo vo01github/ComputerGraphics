@@ -18,7 +18,7 @@ using namespace std;
 
 void myDisplay(void)  
 {  
-	myDisplay_GL_LINE_LOOP_Draw_Sine_function();
+	myDisplay_Draw_Line_On_Windows_function();
 }
 
 //=========================================================================
@@ -31,8 +31,8 @@ int windowsInit(int argc,_TCHAR* argv[])
 	glutInit(&argc,(char**)argv);					// 初始化glut,必须调用，复制黏贴这句话即可  
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);	// 设置显示方式，RGB、单缓冲。当然还有GLUT_INDEX索引颜色 GLUT_DOUBLE双缓冲(Qt中看到过双缓冲)  
 	glutInitWindowPosition(300,300);				// 窗口在显示器屏幕中的位置，指定的是窗口左上角的坐标。(0,0)就会显示在屏幕左上角。  
-	glutInitWindowSize(ScreenArea.x, ScreenArea.y);	// 窗口大小  
-	glutCreateWindow("第一个OpenGL程序");			// 创建窗口，设置标题  
+	glutInitWindowSize(ScreenSize.x, ScreenSize.y);	// 窗口大小  
+	glutCreateWindow("第一个Renderer程序");			// 创建窗口，设置标题  
 	glutDisplayFunc(&myDisplay);					// 当绘制窗口时调用myDisplay，像Cocos2d-x刷帧Draw中的操作  
 	glutMainLoop();									// 消息循环  
 	return 0;  

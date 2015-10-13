@@ -29,17 +29,21 @@ typedef struct Line_2D_World
 	Point2D endPos;
 }Line2D;
 
-
+typedef struct Rect_2D_World
+{
+	Point2D LeftDownPoint;
+	Point2D RightUpPoint;
+}Rect2D;
 
 //=========================================================================
 //
 //							数据定义
 //
 //=========================================================================
-const Point2D ScreenArea = {400.0f, 400.0f};			// 屏幕大小
+const Point2D ScreenSize = {800.0f, 800.0f};			// 屏幕大小
 
+const float scaleScreen = 0.2f;						// 决定要裁剪的区域有多大
 
-
-
+Rect2D ClippingSize;								// 要裁剪的区域
 
 #endif // __DATA_DEFINITION_H__
