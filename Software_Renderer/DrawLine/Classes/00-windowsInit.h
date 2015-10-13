@@ -13,7 +13,7 @@ using namespace std;
 //#include "02-ComplexGraphics.h"
 
 
-const Point2D ScreenArea = {400.0f, 400.0f};
+
 
 
 void myDisplay(void)  
