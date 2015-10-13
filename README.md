@@ -6,9 +6,25 @@ http://www.zhihu.com/question/24786878
 
 ## 学习顺序
 
- - 01  
+ - 01    
 什么版本都不用管 先实现一遍底层的光栅化的3D渲染算法，只用一个画像素的功能，把插值，zbuffer，alpha，阴影，三角形的光栅化，全自己底层实现一遍，之后进阶挑nvidia 的sdk里的例子逐句看，siggraph早期的gpgpu的论文挑自己觉得有趣的去实现，shaderX，gpu gems里头拿感兴趣的实现，我就是这么过来的，后来去了皮克斯做R&D，现在在Weta Digital做R&D
 
+ - 02   
+2D部分：
+光栅化2D点（就是在二维数组上画点，了解色彩基本原理，并解决影像输出问题）  
+光栅化2D直线（布雷森漢姆直線演算法、吴小林直线算法等）  
+2D直线的剪切算法（见Line clipping）  
+光栅化2D三角形（scan conversion）。避免重复光栅化相邻三角形边界的像素（edge equation）。  
+光栅化简单／复杂多边形  
+3D部分：  
+把顶点从三维世界空间变换至二维屏幕空间，绘画顶点（如银河星系数据），操控摄像机旋转模型。  
+在剪切空间进行3D直线的剪切算法，把顶点连线（如各种三维正多面体）光栅化成wire frame模型  
+以多边形来定义三维模型。使用画家算法来光栅化那些多边形。  
+改为使用深度缓冲。  
+实现简单的纹理映射，先做屏幕空间的插值，然后实现简单的perspective-correct texture mapping。  
+实现简单的顶点光照，使用顶点颜色插值实现Gouraud shading。  
+通过顶点法线插值，实现Phong shading。   
+实现其他贴图技术，如mipmapping（也可试Summed area table）、bilinear/trilinear filtering、bump mapping、normal mapping、environment mapping等。  
 
 
  - 05  
@@ -17,6 +33,21 @@ http://www.zhihu.com/question/24786878
 ## 推荐书籍
 
 《3D游戏编程大师》
+
+
+## 具体问题
+
+因为今天基本上是直接用 D3D 或者 OGL，真正光栅化的部分不了解也不影响使用，所以大部分教材都直接跳过了一大段，
+摄像机坐标系如何转换？  
+三角形如何生成？  
+CVV边缘如何检测？  
+四维坐标如何裁剪？  
+边缘及步长如何计算？   
+扫描线该如何绘制？  
+透视纹理映射具体代码该怎么写？  
+framebuffer zbuffer 到底该怎么用？  
+z-test 到底是该 test z 还是 w 还是 1/z 还是 1/w ？  
+这些都没讲。
 
 
 ## 文章
