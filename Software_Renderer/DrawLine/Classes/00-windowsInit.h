@@ -1,14 +1,18 @@
 ﻿
+
+#ifndef __DL_Windows_Init_H__
+#define __DL_Windows_Init_H__
+
 #include<stdlib.h>
 #include<cstdio>
 #include<stdlib.h>
 #include <cstdio>
 #include <iostream>
-using namespace std;
+
 
 #include<gl/glut.h> 
 #include "00-DataDefinition.h"
-#include "01-Bresenham's line algorithm.h"
+#include "01-DrawLine.h"
 
 //#include "02-ComplexGraphics.h"
 
@@ -48,3 +52,6 @@ int windowsInit(int argc,_TCHAR* argv[])
 6、glutMainLoop进入窗体消息循环。
 以后如无特别说明，后面的例子代码只改动display函数的内容即可。
 */
+
+
+#endif // __DL_Windows_Init_H__

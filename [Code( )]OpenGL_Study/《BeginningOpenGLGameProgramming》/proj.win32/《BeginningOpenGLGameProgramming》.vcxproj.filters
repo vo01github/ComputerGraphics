@@ -41,5 +41,11 @@
     <ClInclude Include="..\Classes\03-drawTRIANGLES.h">
       <Filter>Classes</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\03-draw15000Triangles.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\00-DataDefinition.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
