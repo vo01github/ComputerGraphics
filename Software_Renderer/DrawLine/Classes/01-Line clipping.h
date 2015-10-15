@@ -154,6 +154,13 @@ std::vector<Point2D> judgeLineIntersectionRect(const Line2D & checkLine, const R
 	return result;
 }
 
+//=========================================================================
+//
+//					 Math - 数学部分
+//
+//=========================================================================
+
+
 // 求一条直线的斜率
 float getLineK(const Line2D & line)
 {
@@ -166,7 +173,13 @@ float getLineK(const Line2D & line)
 	return  dy/dx;	// 直线的斜率
 }
 
-// 计算出两个线段的交点-点斜式/一般式
+// 计算出任意角度的两个线段的交点-点斜式/一般式
+/*
+	这个是求任何角度的2直线是否相交，计算量太大了，实际上我们这里是在求特殊的直线是否相交：
+	比如一条直线和一个垂直线【X=常量】是否相交，与一条水平线【Y=常量】是否相交
+	这样想来，就可以大大减少运算量了。
+*/
+
 std::vector<Point2D> twoLineIntersection(const Line2D & line1, const Line2D & line2)
 {
 	float k1 =  getLineK(line1);
@@ -188,6 +201,23 @@ std::vector<Point2D> twoLineIntersection(const Line2D & line1, const Line2D & li
 
 	return result;
 }
+
+// 利用矩阵式 计算两条直线的交点
+/*
+
+*/
+
+
+
+
+
+
+// 特殊直线的判断
+
+
+
+
+
 
 
 // 其他判断 两直线交集的点。
