@@ -28,6 +28,8 @@ POLYGON
 void myDisplay_POINTS(void)  
 {  
 	glClear(GL_COLOR_BUFFER_BIT);  
+	glColor3f(1.0, 0.0, 0.0);
+	glPointSize(5.0f);
 	glBegin(GL_POINTS);  
 	glVertex2f(-0.5,-0.5);		//	点P1  
 	glVertex2f(-0.5,0.5);		//	点P2  

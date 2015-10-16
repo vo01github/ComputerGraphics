@@ -14,7 +14,7 @@ using namespace std;
 
 void myDisplay(void)  
 {  
-	myDisplay_GL_TRIANGLES_15000();
+	myDisplay_POINTS();
 }
 
 //=========================================================================

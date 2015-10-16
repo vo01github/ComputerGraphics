@@ -93,7 +93,7 @@ http://www.cnblogs.com/miloyip/archive/2010/03/29/1698953.html
 >
 http://www.cnblogs.com/lingjingqiu/archive/2013/01/13/2858177.html
 
-**光栅化***   
+**光栅化**  
 http://www.lxway.com/14496616.htm   
 2D三角形光栅化算法   
 http://www.lxway.com/58886441.htm  
