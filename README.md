@@ -71,7 +71,7 @@ http://www.cnblogs.com/luming1979
 >
 http://blog.csdn.net/zxx43/article/category/5617159
 
-如何写一个软件渲染器？
+如何写一个软件渲染器？  
 >
 http://www.skywind.me/blog/archives/1498
 
