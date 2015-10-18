@@ -180,7 +180,7 @@ scatter light - 散射光
 ## The Dot Product in Detail - 点乘的细节
 
 
-书签：
+书签： Diffuse Material
 
 
 
