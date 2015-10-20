@@ -39,11 +39,23 @@ hurdle，									障碍
 robust，			healthy and strong		鲁棒性      
 bottleneck								瓶颈    
 examine，		inspect, censor，		检查  
-Raster									光栅化   
-crystal			quartz, cut glass，		水晶	  	
-Liquid crystal 							液晶  	-LCD    
-emit			transmit, launch, 		发射	  	
-Light-emitting							发光		-LED  	
+Raster									光栅化     
+crystal			quartz, cut glass，		水晶	    	
+Liquid crystal 							液晶  	-LCD      
+emit			transmit, launch,emanates， 		发射	    	
+Light-emitting							发光		-LED    	
+Fundamentally							从根本上说  
+influence		affect, effect			影响  
+trace			dog, tail, scout, slot	跟踪 
+Ray tracing								光线追踪
+projection								投影
+parallel								平行
+orthographic							正交
+oblique									倾斜，斜交
+underlying perspective					底层视角
+ 
+
+
 	
 ## 1.1 Graphics Areas
 
@@ -218,10 +230,86 @@ c2 是后置背景。
 
 # C04 Ray Tracing - 光线追踪
 
+**背景阅读资料**
+
+用JavaScript玩转计算机图形学(一)光线追踪入门
+> 
+http://www.cnblogs.com/miloyip/archive/2010/03/29/1698953.html
+
+光线追踪技术的理论和实践(面向对象)
+> 
+http://blog.csdn.net/zhangci226/article/details/5664313
+
+光线追踪(RayTracing)算法理论与实践(一)入门
+> 
+http://blog.csdn.net/silangquan/article/details/8176855
+
+计算机图形学（第三版）（美）赫恩 著，（美）巴克 著。
+
+
+Fundamentally, rendering is a process that takes as its input a set of objects and
+produces as its output an array of pixels. One way or another, rendering involves
+considering how each object contributes to each pixel; it can be organized in two
+general ways. In object-order rendering, each object is considered in turn, and
+for each object all the pixels that it influences are found and updated. In image
+order rendering, each pixel is considered in turn, and for each pixel all the objects
+that influence it are found and the pixel value is computed. You can think of
+the difference in terms of the nesting of loops: in image-order rendering the “for
+each pixel” loop is on the outside, whereas in object-order rendering the “for each
+object” loop is on the outside.
+
+就是2个for循环。一个是遍历所有物体，一个是遍历 输出屏幕的所有图像，然后两个for循环，谁放在外层嵌套 决定了两种不同的 渲染方式：
+object-order rendering, image order rendering。
+
+如果输出是一个向量图像，而不是一个光栅图像（也就是位图），渲染没有涉及像素，但在这本书中我们假设这里指光栅图像。
+
+image-order rendering is simpler to get working。
+
+光线追踪渲染 是一个 image order rendering。
+
+扫描线渲染/光栅化渲染 是一个 object-order rendering。
+
+光线跟踪是一个比光线投射或者扫描线渲染更加逼真的实现方法。
+
+光栅化渲染就是先计算多边形或三角形顶点的坐标变换，然后在多边形或三角形内填充纹理（同样是经过坐标变换），同时每个填充点也可以经过fragment shader计算来实现各种效果。
+
+光线追踪渲染就是假设屏幕上每一个点是一根一根向前的射线，计算这个射线打到了哪个多边形、平面或曲面上哪个位置，然后取出该点的纹理像素颜色。如果被打到的面带有反射或折射属性，那么还需要产生多根射线往下递归，最终经过blending算得最终像素颜色。如果遇到漫反射面的话一般是需要产生非常多的次级射线往下递归才能达到比较好的效果（否则噪点比较明显），如果需要模拟出光线打到玻璃或镜面上的效果，还需要计算photon map。而且搜寻一根射线跟一大堆多边形中哪一个相交也是非常耗时间的计算。所以光线追踪渲染的计算量非常大。 
+
+
+## 4.1 The Basic Ray-Tracing Algorithm - 基本光线跟踪算法
+
+一道光线从摄像机里面射出来，只到碰撞到离摄像机最近的物体，然后确定了这个碰撞到的物体后，然后进行阴影计算，算出来这个像素的颜色。
+
+一个基本的光线追踪器有三个部分：
+
+1.ray generation, which computes the origin and direction of each pixel
+viewing ray based on the camera geometry;  
+计算每个像素射出的光线方向。   
+2.ray intersection,which finds the closest object intersecting the viewing ray;  
+计算出光线碰到的物体。  
+3.shading, which computes the pixel color based on the results of ray intersection.  
+计算出射线相交的像素的颜色。  
+
+1 射线产生
+2 光线交叉
+3 阴影
+
+## 4.2 Perspective - 透视
+
+传统的绘画 是 线性透视。
+而 鱼眼镜头 则是 非线性透视。
+
+
+当投影线平行并垂直于图像平面，这种情况被称为正交。
+如果图像平面垂直于观察方向，所述突起被称为正交;否则，它被称为斜交。
+
+平行投影通常用于机械和建筑图因为它们保持平行线平行，它们保持的尺寸和形状的是平行于所述图像平面的平面物体。
+
+## 4.3 Computing Viewing Rays - 计算 发射光线
 
 
 书签  
-P85/785  
+P89/785  
 
 
 
