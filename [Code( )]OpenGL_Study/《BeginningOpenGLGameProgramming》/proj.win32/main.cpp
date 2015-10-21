@@ -6,7 +6,9 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	windowsInit(argc, argv);
+	OpenGLwindows* zsj = new OpenGLwindows();
+
+	zsj->windowsInit(argc, argv);
 
 	return 0;
 }
