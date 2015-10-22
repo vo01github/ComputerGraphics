@@ -6,7 +6,8 @@
 #include <vector>
 #include<gl/glut.h> 
 #include "00-DataDefinition.h"
-#include "01-Bresenham's line algorithm.h"
+#include "00-DataInit.h"
+#include "DrawLineAlgorithm/DrawLineInterface.h"
 
 
 // 定义要画的直线的集合
@@ -15,7 +16,7 @@ const Line2D  drawLineSet[]	= {
 	{ {0, 0},	{190, 190}	},
 	{ {0, 0},	{190, 50}	},
 };		
-std::vector<Point2D> drawPointSet;					// 集成了要画出的点
+std::vector<Point2D_int> drawPointSet;					// 集成了要画出的点
 
 //=========================================================================
 //
@@ -48,7 +49,7 @@ void myDisplay_Draw_Line_On_Windows_function(void)
 		drawPointSet.clear();
 
 		//计算出要画的点
-		creat_Line_Point_Set(line, drawPointSet);
+		draw2DLine(line, drawPointSet);
 		for (const auto & point : drawPointSet)
 		{
 			glVertex2f(point.x *2.0f/ScreenSize.x, point.y*2.0f/ScreenSize.y);		// 坐标转换，转换成 -1.0～1.0的坐标

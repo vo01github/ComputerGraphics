@@ -1,8 +1,5 @@
 ﻿
-
-#ifndef __DL_DATA_DEFINITION_H__
-#define __DL_DATA_DEFINITION_H__
-
+#include "00-DataDefinition.h"
 
 //=========================================================================
 //
@@ -14,12 +11,6 @@ typedef struct Point_2D_World
 	float x;
 	float y;
 }Point2D;
-
-typedef struct Point_2D_World_Discrete_Integer		// 点离散化成整型 
-{
-	int x;
-	int y;
-}Point2D_int;
 
 
 typedef struct Line_2D_World
@@ -35,4 +26,3 @@ typedef struct Rect_2D_World
 }Rect2D;
 
 
-#endif // __DL_DATA_DEFINITION_H__

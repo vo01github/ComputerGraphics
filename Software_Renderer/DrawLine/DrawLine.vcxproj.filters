@@ -12,6 +12,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Classes\Algorithm">
+      <UniqueIdentifier>{e91c560b-9356-4e94-b834-2581d4a80b31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="proj.win32\main.cpp">
@@ -20,6 +23,9 @@
     <ClCompile Include="proj.win32\stdafx.cpp">
       <Filter>win32</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\DrawLineAlgorithm\DrawLineInterface.cpp">
+      <Filter>Classes\Algorithm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="proj.win32\stdafx.h">
@@ -27,9 +33,6 @@
     </ClInclude>
     <ClInclude Include="proj.win32\targetver.h">
       <Filter>win32</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\01-Bresenham%27s line algorithm.h">
-      <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="Classes\00-DataDefinition.h">
       <Filter>Classes</Filter>
@@ -41,6 +44,15 @@
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="Classes\01-DrawLine.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\DrawLineAlgorithm\DrawLineInterface.h">
+      <Filter>Classes\Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\DrawLineAlgorithm\Bresenham%27s line algorithm.h">
+      <Filter>Classes\Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\00-DataInit.h">
       <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,15 +11,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\DrawLineAlgorithm\DrawLineInterface.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="proj.win32\main.cpp" />
     <ClCompile Include="proj.win32\stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes\00-DataDefinition.h" />
+    <ClInclude Include="Classes\00-DataInit.h" />
     <ClInclude Include="Classes\00-WindowsInit.h" />
-    <ClInclude Include="Classes\01-Bresenham%27s line algorithm.h" />
     <ClInclude Include="Classes\01-DrawLine.h" />
     <ClInclude Include="Classes\01-Line clipping.h" />
+    <ClInclude Include="Classes\DrawLineAlgorithm\Bresenham%27s line algorithm.h" />
+    <ClInclude Include="Classes\DrawLineAlgorithm\DrawLineInterface.h" />
     <ClInclude Include="proj.win32\stdafx.h" />
     <ClInclude Include="proj.win32\targetver.h" />
   </ItemGroup>
