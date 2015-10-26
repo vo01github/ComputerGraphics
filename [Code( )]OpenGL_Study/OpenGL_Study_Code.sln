@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "《BeginningOpenGLGameProgramming》", "《BeginningOpenGLGameProgramming》\proj.win32\《BeginningOpenGLGameProgramming》.vcxproj", "{E9CEA60C-0100-415F-B247-ACF6B0C338B6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "《OpenGL Programming Guide(8th)》", "《OpenGL Programming Guide(8th)》\proj.win32\《OpenGL Programming Guide(8th)》.vcxproj", "{7901E567-53E1-4423-9D79-60EF19F87EA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{E9CEA60C-0100-415F-B247-ACF6B0C338B6}.Debug|Win32.Build.0 = Debug|Win32
 		{E9CEA60C-0100-415F-B247-ACF6B0C338B6}.Release|Win32.ActiveCfg = Release|Win32
 		{E9CEA60C-0100-415F-B247-ACF6B0C338B6}.Release|Win32.Build.0 = Release|Win32
+		{7901E567-53E1-4423-9D79-60EF19F87EA1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7901E567-53E1-4423-9D79-60EF19F87EA1}.Debug|Win32.Build.0 = Debug|Win32
+		{7901E567-53E1-4423-9D79-60EF19F87EA1}.Release|Win32.ActiveCfg = Release|Win32
+		{7901E567-53E1-4423-9D79-60EF19F87EA1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
