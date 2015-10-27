@@ -7,7 +7,7 @@
 using namespace std;
 
 #include<gl/glut.h> 
-
+#include <vector>
 
 /*		下面 学习到内容
 
@@ -19,6 +19,8 @@ POLYGON
 
 */
 
+#define VF std::vector<float>
+#define VVF std::vector<VF>
 
 //=========================================================================
 //
