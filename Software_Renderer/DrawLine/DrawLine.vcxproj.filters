@@ -55,5 +55,8 @@
     <ClInclude Include="Classes\00-DataInit.h">
       <Filter>Classes</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\02-3D Coordinate System.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

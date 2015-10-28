@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\GL\freeglut.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL\freeglut_ext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL\freeglut_std.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL\glut.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fg_gl2.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fg_init.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fg_internal.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fg_teapot_data.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fg_version.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mswin\fg_internal_mswin.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\xparsegeometry_repl.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL\config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\fg_callbacks.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_cursor.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_display.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_ext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_font.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_font_data.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_gamemode.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_geometry.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_gl2.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_init.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_input_devices.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_joystick.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_main.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_menu.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_misc.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_overlay.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_spaceball.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_state.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_stroke_mono_roman.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_stroke_roman.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_structure.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_teapot.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_videoresize.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fg_window.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_cursor_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_display_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_ext_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_gamemode_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_init_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_input_devices_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_joystick_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_main_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_menu_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_spaceball_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_state_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_structure_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mswin\fg_window_mswin.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\xparsegeometry_repl.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

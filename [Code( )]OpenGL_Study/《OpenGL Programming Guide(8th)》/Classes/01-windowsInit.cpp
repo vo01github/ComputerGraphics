@@ -10,13 +10,14 @@ using namespace std;
 
 #include "01-windowsInit.h"
 #include "01-SimpleGraphics.h"
-#include "02-ComplexGraphics.h"
-#include "03-draw15000Triangles.h"
+//#include "02-ComplexGraphics.h"
+//#include "03-draw15000Triangles.h"
 #include "00-DataDefinition.h"
 
 
 OpenGLwindows* OpenGLwindows::m_pSceneManager = NULL;
 
+enum VAO_IDs { Triangles, NumVAOs };
 
 
 OpenGLwindows* OpenGLwindows::sharedSceneManager()
@@ -36,6 +37,13 @@ void OpenGLwindows::myDisplay(void)
 
 }
 
+void init()
+{
+	//glGenVertexArrays();
+
+	
+}
+
 //=========================================================================
 //
 //							窗口初始化
@@ -44,14 +52,16 @@ void OpenGLwindows::myDisplay(void)
 int OpenGLwindows::windowsInit(int argc,_TCHAR* argv[])  
 {  
 	glutInit(&argc,(char**)argv);					// 初始化glut,必须调用，复制黏贴这句话即可  
-	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);	// 设置显示方式，RGB、单缓冲。当然还有GLUT_INDEX索引颜色 GLUT_DOUBLE双缓冲(Qt中看到过双缓冲)  
+	glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE);	// 设置显示方式，RGB、单缓冲。当然还有GLUT_INDEX索引颜色 GLUT_DOUBLE双缓冲(Qt中看到过双缓冲)  
 	glutInitWindowPosition(300,300);				// 窗口在显示器屏幕中的位置，指定的是窗口左上角的坐标。(0,0)就会显示在屏幕左上角。  
 	glutInitWindowSize(ScreenSize.x, ScreenSize.y);					// 设置所需窗口大小  
+	//glutInitContextVersion(4, 3);
 	//glutCreateWindow("第一个OpenGL程序");			// 创建窗口，设置标题  
 	glutCreateWindow((char*)argv[0]);				// 这样也行啊？
 	//glutDisplayFunc(&this->myDisplay);				// 当绘制窗口时调用myDisplay，像Cocos2d-x刷帧Draw中的操作  
 	//glutDisplayFunc(&(OpenGLwindows::myDisplay));
-	//glutDisplayFunc((OpenGLwindows::sharedSceneManager()->myDisplay));	
+	//glutDisplayFunc((OpenGLwindows::sharedSceneManager()->myDisplay));
+	init();
 	glutDisplayFunc(myDisplay);	
 
 	glutMainLoop();									// 无限执行的循环，glutMainLoop()会判断窗口是否需要进行重绘， 会自动调用 glutDisplayFunc()中注册的函数。   

@@ -1,0 +1,13 @@
+
+如果下面的步骤不行，就自己再编译一次工程来生成最终要的 2个文件吧。
+
+新建工程教程：
+http://www.huangwenbing.com/2015/08/23/opengl-vs2012%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/
+
+好了所有的配置都弄好了，生成解决方案后，可以在freeglut/Debug下看到freeglut.dll和freeglut.lib了
+
+把freeglut.lib拷贝到系统C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\lib
+
+把D:\workspace\freeglut\freeglut\include下的所有文件拷贝到系统C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include
+
+把freeglut.dll拷贝到系统C:\Windows\SysWOW64(Win7系统)或者C:\Windows\System32(XP系统)

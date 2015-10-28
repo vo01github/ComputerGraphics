@@ -17,12 +17,12 @@
 //#include "02-ComplexGraphics.h"
 
 
-
+#include "02-3D Coordinate System.h"
 
 
 void myDisplay(void)  
 {  
-	myDisplay_Draw_Line_On_Windows_function();
+	myDisplay_Draw_3D_Coordinate_System_On_Windows_function();
 }
 
 //=========================================================================
@@ -37,7 +37,9 @@ int windowsInit(int argc,_TCHAR* argv[])
 	glutInitWindowPosition(300,300);				// 窗口在显示器屏幕中的位置，指定的是窗口左上角的坐标。(0,0)就会显示在屏幕左上角。  
 	glutInitWindowSize(ScreenSize.x, ScreenSize.y);	// 窗口大小  
 	glutCreateWindow("第一个Renderer程序");			// 创建窗口，设置标题  
+	
 	glutDisplayFunc(&myDisplay);					// 当绘制窗口时调用myDisplay，像Cocos2d-x刷帧Draw中的操作  
+	//glutReshapeFunc(changeSize);
 	glutMainLoop();									// 消息循环  
 	return 0;  
 }  
