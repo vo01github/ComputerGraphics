@@ -13,7 +13,7 @@ using namespace std;
 #include "02-ComplexGraphics.h"
 #include "03-draw15000Triangles.h"
 #include "00-DataDefinition.h"
-
+#include "[zsj]-3D Coordinate System.h"
 
 OpenGLwindows* OpenGLwindows::m_pSceneManager = NULL;
 
@@ -32,7 +32,7 @@ OpenGLwindows* OpenGLwindows::sharedSceneManager()
 
 void OpenGLwindows::myDisplay(void)  
 {  
-	myDisplay_POINTS();
+	myDisplay_Draw_3D_Coordinate_System_On_Windows_function();
 
 }
 

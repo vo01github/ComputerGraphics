@@ -11,27 +11,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\00-DataDefinition.h" />
+    <ClInclude Include="..\Classes\01-windowsInit.h" />
+    <ClInclude Include="..\Classes\[glRotatef%28%29].h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="..\Classes\01-windowsInit.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\Classes\00-DataDefinition.h" />
-    <ClInclude Include="..\Classes\01-SimpleGraphics.h" />
-    <ClInclude Include="..\Classes\01-windowsInit.h" />
-    <ClInclude Include="..\Classes\02-ComplexGraphics.h" />
-    <ClInclude Include="..\Classes\03-draw15000Triangles.h" />
-    <ClInclude Include="..\Classes\03-drawTRIANGLES.h" />
-    <ClInclude Include="..\Classes\[zsj]-3D Coordinate System.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E9CEA60C-0100-415F-B247-ACF6B0C338B6}</ProjectGuid>
+    <ProjectGuid>{AF9A85C8-286C-4CA3-A650-CCBE252B5091}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>《BeginningOpenGLGameProgramming》</RootNamespace>
+    <RootNamespace>OpenGL_Summary</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -58,8 +54,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>F:\回退位置-VS存储sdf和ipch的临时文件【需要定期清理】\输出目录\$(ProjectName)\$(Configuration)\</OutDir>
-    <IntDir>F:\回退位置-VS存储sdf和ipch的临时文件【需要定期清理】\输出目录\$(ProjectName)\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>D:\回退位置-VS存储sdf和ipch的临时文件【需要定期清理】\输出目录\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>D:\回退位置-VS存储sdf和ipch的临时文件【需要定期清理】\输出目录\$(ProjectName)\$(ProjectName)\$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

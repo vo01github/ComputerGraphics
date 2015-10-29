@@ -13,6 +13,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Classes\ZSJ">
+      <UniqueIdentifier>{b832a3c3-9269-434d-be84-a235ee30df07}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -44,11 +47,14 @@
     <ClInclude Include="..\Classes\03-drawTRIANGLES.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\03-draw15000Triangles.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\00-DataDefinition.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\[zsj]-3D Coordinate System.h">
+      <Filter>Classes\ZSJ</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\03-draw15000Triangles.h">
+      <Filter>Classes\ZSJ</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

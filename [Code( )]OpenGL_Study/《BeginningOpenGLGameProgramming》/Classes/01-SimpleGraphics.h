@@ -163,7 +163,7 @@ void myDisplay_GL_POLYGON(void)	// 画个矩形
 {  
 	glClear(GL_COLOR_BUFFER_BIT);  
 
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);		//glPolygonMode()指定了如何绘制面的方式，GL_LINE为只画线，GL_FILL则是默认的填充。	
 
 	glBegin(GL_POLYGON);
 	glVertex2f(-0.5,-0.5);		//	点P1  

@@ -23,7 +23,6 @@
     <ClInclude Include="Classes\00-WindowsInit.h" />
     <ClInclude Include="Classes\01-DrawLine.h" />
     <ClInclude Include="Classes\01-Line clipping.h" />
-    <ClInclude Include="Classes\02-3D Coordinate System.h" />
     <ClInclude Include="Classes\DrawLineAlgorithm\Bresenham%27s line algorithm.h" />
     <ClInclude Include="Classes\DrawLineAlgorithm\DrawLineInterface.h" />
     <ClInclude Include="proj.win32\stdafx.h" />

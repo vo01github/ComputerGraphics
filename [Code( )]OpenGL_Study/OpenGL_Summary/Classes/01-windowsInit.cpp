@@ -1,28 +1,34 @@
 ﻿
-
-#ifndef __DL_Windows_Init_H__
-#define __DL_Windows_Init_H__
-
 #include<stdlib.h>
 #include<cstdio>
 #include<stdlib.h>
 #include <cstdio>
 #include <iostream>
-
+using namespace std;
 
 #include<gl/glut.h> 
+
+#include "01-windowsInit.h"
 #include "00-DataDefinition.h"
-#include "01-DrawLine.h"
-
-//#include "02-ComplexGraphics.h"
+#include "[glRotatef()].h"
 
 
-//#include "02-3D Coordinate System.h"
+OpenGLwindows* OpenGLwindows::m_pSceneManager = NULL;
+
+OpenGLwindows* OpenGLwindows::sharedSceneManager()
+{
+	if(m_pSceneManager == NULL)
+	{
+		m_pSceneManager = new OpenGLwindows();
+	}
+	return m_pSceneManager;
+}
 
 
-void myDisplay(void)  
+void OpenGLwindows::myDisplay(void)  
 {  
-	//myDisplay_Draw_3D_Coordinate_System_On_Windows_function();
+	myDisplay_Test_Rotate_Obj();
+
 }
 
 //=========================================================================
@@ -30,17 +36,21 @@ void myDisplay(void)
 //							窗口初始化
 //
 //=========================================================================
-int windowsInit(int argc,_TCHAR* argv[])  
+int OpenGLwindows::windowsInit(int argc,_TCHAR* argv[])  
 {  
 	glutInit(&argc,(char**)argv);					// 初始化glut,必须调用，复制黏贴这句话即可  
-	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);	// 设置显示方式，RGB、单缓冲。当然还有GLUT_INDEX索引颜色 GLUT_DOUBLE双缓冲(Qt中看到过双缓冲)  
+	glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE);	// 设置显示方式，RGB、单缓冲。当然还有GLUT_INDEX索引颜色 GLUT_DOUBLE双缓冲(Qt中看到过双缓冲)  
 	glutInitWindowPosition(300,300);				// 窗口在显示器屏幕中的位置，指定的是窗口左上角的坐标。(0,0)就会显示在屏幕左上角。  
-	glutInitWindowSize(ScreenSize.x, ScreenSize.y);	// 窗口大小  
-	glutCreateWindow("第一个Renderer程序");			// 创建窗口，设置标题  
-	
-	glutDisplayFunc(&myDisplay);					// 当绘制窗口时调用myDisplay，像Cocos2d-x刷帧Draw中的操作  
-	//glutReshapeFunc(changeSize);
-	glutMainLoop();									// 消息循环  
+	glutInitWindowSize(ScreenSize.x, ScreenSize.y);					// 设置所需窗口大小  
+
+	//glutCreateWindow("第一个OpenGL程序");			// 创建窗口，设置标题  
+	glutCreateWindow((char*)argv[0]);				// 这样也行啊？
+	//glutDisplayFunc(&this->myDisplay);				// 当绘制窗口时调用myDisplay，像Cocos2d-x刷帧Draw中的操作  
+	//glutDisplayFunc(&(OpenGLwindows::myDisplay));
+	//glutDisplayFunc((OpenGLwindows::sharedSceneManager()->myDisplay));	
+	glutDisplayFunc(myDisplay);	
+
+	glutMainLoop();									// 无限执行的循环，glutMainLoop()会判断窗口是否需要进行重绘， 会自动调用 glutDisplayFunc()中注册的函数。   
 	return 0;  
 }  
 
@@ -54,6 +64,3 @@ int windowsInit(int argc,_TCHAR* argv[])
 6、glutMainLoop进入窗体消息循环。
 以后如无特别说明，后面的例子代码只改动display函数的内容即可。
 */
-
-
-#endif // __DL_Windows_Init_H__
