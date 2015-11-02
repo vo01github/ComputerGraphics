@@ -4,6 +4,7 @@
 
 #include <vector>
 #include "00-DataDefinition.h"
+#include "00-DataInit.h"
 #include <limits>
 
 /*		本文 学习到内容
