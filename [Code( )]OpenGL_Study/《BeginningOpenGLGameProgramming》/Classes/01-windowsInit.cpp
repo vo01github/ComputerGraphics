@@ -36,6 +36,23 @@ void OpenGLwindows::myDisplay(void)
 
 }
 
+// 输入
+void ProcessMouse(int button,int state,int x,int y)			// 鼠标响应
+{
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+	{
+		GLfloat ang = -10;			
+		glRotatef(ang, -1,0,1);
+		glutPostRedisplay();
+	} else if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
+	{
+		GLfloat ang = 10;			
+		glRotatef(ang, -1,0,1);
+		glutPostRedisplay();
+	}
+}
+
+
 //=========================================================================
 //
 //							窗口初始化
@@ -54,7 +71,7 @@ int OpenGLwindows::windowsInit(int argc,_TCHAR* argv[])
 	//glutDisplayFunc(&(OpenGLwindows::myDisplay));
 	//glutDisplayFunc((OpenGLwindows::sharedSceneManager()->myDisplay));	
 	glutDisplayFunc(myDisplay);	
-
+	glutMouseFunc(&ProcessMouse);
 	glutMainLoop();									// 无限执行的循环，glutMainLoop()会判断窗口是否需要进行重绘， 会自动调用 glutDisplayFunc()中注册的函数。   
 	return 0;  
 }  

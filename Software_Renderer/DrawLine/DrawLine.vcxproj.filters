@@ -55,5 +55,11 @@
     <ClInclude Include="Classes\00-DataInit.h">
       <Filter>Classes</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\00-InputProcessing.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\[zsj]-3D Coordinate System.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

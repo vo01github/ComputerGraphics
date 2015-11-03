@@ -12,6 +12,6 @@
 //=========================================================================
 void draw2DLine(const Line2D & drawLine, std::vector<Point2D_int> & pointSet)
 {
-	creat_Line_Point_Set_By_Int_Compute(drawLine, pointSet);
+	transform_Line_Pos(drawLine, pointSet);	
 }
 

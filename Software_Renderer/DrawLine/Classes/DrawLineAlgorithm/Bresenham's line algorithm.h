@@ -14,6 +14,9 @@ Bresenham 画线算法
 
 */
 
+// 前置声明
+void creat_Line_Point_Set_By_Int_Compute(const float startX, const float  startY, const float endX, const float endY, std::vector<Point2D_int> & pointSet);
+
 
 
 /*
@@ -70,20 +73,87 @@ void creat_Line_Point_Set_By_Int_Compute0(const Line2D & drawLine, std::vector<P
 	frontP.y = (int)drawLine.startPos.y;
 	backP = frontP;
 
+	// 确定 递增值是正还是负
+	int sign = 1;
+	if (k<0) sign = -1;
+
+
 	// X方向每前进一个单位时，Y方向就相应的判断 是+1还是+0个单位。
-	for (float addy = drawLine.startPos.y + k; addy < dy; addy += k) {	//增量y
+	for (float addy = drawLine.startPos.y + k; backP.x < drawLine.endPos.x; addy += k) {	//增量y
 		backP.x += 1;
 
 		// 判断 Y方向是 +1 还是 +0 个单位
-		if ( (addy - frontP.y) * 2 > 1 )
+		if ( abs(addy - frontP.y) * 2 > 1 )
 		{
-			backP.y += 1;
+			backP.y += sign;
 		}
 
 		// 把点压入集合中
 		pointSet.push_back(backP);
 
 		frontP = backP;
+	}
+}
+
+
+//=========================================================================
+//
+//					象限转换接口
+//
+//=========================================================================
+enum Eight_Interval {		// 以X轴为初始，逆时针算起。 
+	F1,
+	F2,						// k > 1 || k < -1 的直线
+};
+
+/*	坐标转换接口
+	一般式 8个区间都可以画 
+
+	转换后的 line 的 坐标：endPos.x > startPos.x
+	这个还支持 画 水平线 和画 垂直线
+*/ 
+void transform_Line_Pos(const Line2D & Line1, std::vector<Point2D_int> & pointSet)
+{
+	float dy = Line1.endPos.y - Line1.startPos.y;
+	float dx = Line1.endPos.x - Line1.startPos.x;
+	
+
+	if (0 == dx) {		// 画一条 竖直直线
+		// 好像不需要做特殊判断，以后做优化的时候加这块吧，专门画横着的 扫描线的。
+	}
+
+	float k = dy/dx;	// 直线的斜率
+
+	Line2D drawLine = Line1;
+
+	// x 和 y 互换
+	int posState = F1; 
+	if (k > 1 || k < -1) { 
+		drawLine.startPos.x = Line1.startPos.y;
+		drawLine.startPos.y = Line1.startPos.x;
+		drawLine.endPos.x = Line1.endPos.y;
+		drawLine.endPos.y = Line1.endPos.x;
+		posState = F2;
+	}
+
+	// startPos 和 endPos 互换，直线的起始点和终点确定。
+	if (drawLine.endPos.x < drawLine.startPos.x) {
+		auto tem = drawLine.startPos;
+		drawLine.startPos = drawLine.endPos;
+		drawLine.endPos = tem;
+	}
+
+	// 生成中间结果
+	//creat_Line_Point_Set_By_Int_Compute0(drawLine, pointSet);
+	creat_Line_Point_Set_By_Int_Compute(drawLine.startPos.x, drawLine.startPos.y, drawLine.endPos.x, drawLine.endPos.y, pointSet);
+
+	// 中间结果的 坐标转换
+	if (F2 == posState) {
+		for (auto & er : pointSet) {
+			auto tem = er.x;
+			er.x = er.y;
+			er.y = tem;
+		}
 	}
 }
 
@@ -93,7 +163,6 @@ void creat_Line_Point_Set_By_Int_Compute0(const Line2D & drawLine, std::vector<P
 //					 Bresenham's line algorithm - 布雷森汉姆直线算法
 //
 //=========================================================================
-
 // 第3版 - 把K改成整数运算[注意到上面的 k 可以改掉，不需要出现 k 以及 除法运算  k = dy/dx; ]
 /*
 	01 把 dy 和 dx 定义为 整型。
@@ -102,37 +171,26 @@ void creat_Line_Point_Set_By_Int_Compute0(const Line2D & drawLine, std::vector<P
 
 	最终效果：全程没有 浮点 和 浮点除法 运算。
 */
-void creat_Line_Point_Set_By_Int_Compute(const Line2D & Line1, std::vector<Point2D_int> & pointSet)
+void creat_Line_Point_Set_By_Int_Compute(const float startX, const float  startY, const float endX, const float endY, std::vector<Point2D_int> & pointSet)
 {
-	// 软接口 - 直线转换
-	Line2D drawLine;
-	if (Line1.endPos.x > Line1.startPos.x)
-	{
-		drawLine = Line1;
-	} else {
-		drawLine.startPos = Line1.endPos;
-		drawLine.endPos = Line1.startPos;
-	}
-	// 软接口
-
-	int dy = (int)(drawLine.endPos.y - drawLine.startPos.y);
-	int dx = (int)(drawLine.endPos.x - drawLine.startPos.x);
+	int dy = (int)(endY - startY);
+	int dx = (int)(endX - startX);
 
 	Point2D_int frontP, backP;	
-	frontP.x = (int)drawLine.startPos.x;		//  点离散化到整数级别 - 后期改进为 点的取舍
-	frontP.y = (int)drawLine.startPos.y;
+	frontP.x = (int)startX;		//  点离散化到整数级别 - 后期改进为 点的取舍
+	frontP.y = (int)startY;
 	backP = frontP;
 
+	// 确定 递增值是正还是负
+	int sign = 1;
+	if (dy < 0) sign = -1;
+
 	// X方向每前进一个单位时，Y方向就相应的判断 是+1还是+0个单位。
-	for (int addy = (int)(drawLine.startPos.y + dy); backP.x < drawLine.endPos.x; addy += dy) {	
-	//for (int addy = (int)(drawLine.startPos.y + dy); abs(backP.x - drawLine.endPos.x) < abs(dx); addy += dy) {	
+	for (int addy = (int)(dx*startY + dy); backP.x < endX; addy += dy) {		
 		backP.x += 1;
 
 		// 判断 Y方向是 +1 还是 +0 个单位
-		if ( 2*addy > dx + 2*dx*frontP.y )
-		{
-			backP.y += 1;
-		}
+		if ( abs(2*addy - 2*dx*frontP.y) > dx ) backP.y += sign;
 
 		// 把点压入集合中
 		pointSet.push_back(backP);
@@ -140,6 +198,7 @@ void creat_Line_Point_Set_By_Int_Compute(const Line2D & Line1, std::vector<Point
 		frontP = backP;
 	}
 }
+
 
 
 
@@ -148,66 +207,6 @@ void creat_Line_Point_Set_By_Int_Compute(const Line2D & Line1, std::vector<Point
 	对应坐标轴 的8个区间：
 */
 
-enum Eight_Interval {
-	F1,
-	F2,
-	F3,
-	F4,
-
-	F5,
-	F6,
-	F7,
-	F8,
-};
-
-#if 1
-void creat_Line_Point_Set_By_Int_Compute_8Interval(const Line2D & originalLine, std::vector<Point2D_int> & pointSet)
-{
-	int ds1 = (int)(originalLine.endPos.y - originalLine.startPos.y);
-	int ds2 = (int)(originalLine.endPos.x - originalLine.startPos.x);
-
-	if(ds2 == 0) {
-		// 画一条竖直的线
-		return;
-	}
-
-
-	float k = ds1/ds2;	// 直线的斜率
-	int dx,dy;
-	if ( k > 0 && k <= 1)
-	{
-		dy = ds1;
-
-	}
-
-	const Line2D drawLine = originalLine;
-
-
-	
-
-	Point2D_int frontP, backP;	
-	frontP.x = (int)drawLine.startPos.x;		//  点离散化到整数级别 - 后期改进为 点的取舍
-	frontP.y = (int)drawLine.startPos.y;
-	backP = frontP;
-
-	// X方向每前进一个单位时，Y方向就相应的判断 是+1还是+0个单位。
-	for (int addy = (int)(drawLine.startPos.y + dy); backP.x < drawLine.endPos.x; addy += dy) {	
-		backP.x += 1;
-
-		// 判断 Y方向是 +1 还是 +0 个单位
-		if ( 2*addy > dx + 2*dx*frontP.y )
-		{
-			backP.y += 1;
-		}
-
-		// 把点压入集合中
-		pointSet.push_back(backP);
-
-		frontP = backP;
-	}
-}
-
-#endif
 
 
 /*
