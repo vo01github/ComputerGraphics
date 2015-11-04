@@ -33,9 +33,8 @@
 2个交点，第4种情况。
 1个交点，第3种情况。
 0个交点，需要进行判断是第1种情况 还是 第2种情况。
-
-
 */
+
 void create_widows()
 {
 	ClippingSize.LeftDownPoint.x = ScreenSize.x * scaleScreen * (-1.0f);
@@ -44,7 +43,80 @@ void create_widows()
 	ClippingSize.RightUpPoint.y = ScreenSize.y * scaleScreen * (1.0f);
 }
 
+//=========================================================================
+//
+//		特殊直线的判断： X = a, Y = b, 的特殊直线。
+//
+//=========================================================================
 
+// 判断直线是否 与矩形框的 4条直线相交的点的个数
+void judgeLineRect(Line2D & checkLine, const Rect2D & checkRect)
+{
+	// 四条特殊的直线
+	float xR	=	ClippingSize.RightUpPoint.x;
+	float xL	=	ClippingSize.LeftDownPoint.x;
+	float yUp	=	ClippingSize.RightUpPoint.y;
+	float yDown	=	ClippingSize.LeftDownPoint.y;
+
+
+}
+
+
+//=========================================================================
+//
+//					 Math - 数学部分
+//
+//=========================================================================
+// 求一条直线的斜率
+float getLineK(const Line2D & line)
+{
+	float dy = line.endPos.y - line.startPos.y;
+	float dx = line.endPos.x - line.startPos.x;
+
+	// 垂直时，斜率无穷大
+	if (dx == 0) return std::numeric_limits<float>::infinity();		
+
+	return  dy/dx;	// 直线的斜率
+}
+
+/*
+	求特殊的直线是否相交：
+	比如一条直线和一个垂直线【X=常量】是否相交，与一条水平线【Y=常量】是否相交
+*/
+
+// isX 为 true 时说明，要判断的特殊直线就是X。
+std::vector<Point2D> twoLineIntersection(const Line2D & line1, const float & Xcon, const float & Ycon, bool isX)
+{
+	float k1 =  getLineK(line1);
+
+	std::vector<Point2D> result;
+	if (isX) { 
+		float big = line1.startPos.x > line1.endPos.x ? line1.startPos.x : line1.endPos.x;
+		float small = line1.startPos.x < line1.endPos.x ? line1.startPos.x : line1.endPos.x;
+		if (Xcon >= big || Xcon <= small) return result;
+	} else {
+		float big = line1.startPos.y > line1.endPos.y ? line1.startPos.y : line1.endPos.y;
+		float small = line1.startPos.y < line1.endPos.y ? line1.startPos.y : line1.endPos.y;
+		if (Ycon >= big || Ycon <= small) return result;
+	}
+
+#if 0
+	if (k1 == k2) return std::vector<Point2D>();	// 两条直线平行。
+	result.push_back();
+#endif
+
+	return result;
+}
+
+
+
+//=========================================================================
+//
+//		下面写的是 通用式，完全没有 考虑到 矩形框的特殊性， X = a, Y = b, 的特殊直线。
+//		所以计算起来超级复杂，已经放弃这样的使用了。
+//=========================================================================
+
+#if 0
 // 判断直线是否 与矩形框相交
 void judgeLineRect(Line2D & checkLine, const Rect2D & checkRect)
 {
@@ -76,14 +148,6 @@ void judgeLineRect(Line2D & checkLine, const Rect2D & checkRect)
 			clippingLine(checkLine, line_in_rect);
 		}
 	}
-
-
-
-	//std::vector<Point2D> pointSet = judgeLineIntersectionRect(checkLine, checkRect);
-	//const int pointNum = pointSet.size();
-	//if (pointNum == 1)
-	//{
-	//}
 }
 
 void clippingLine(Line2D & checkLine, std::vector<Point2D> restult)
@@ -162,17 +226,7 @@ std::vector<Point2D> judgeLineIntersectionRect(const Line2D & checkLine, const R
 //=========================================================================
 
 
-// 求一条直线的斜率
-float getLineK(const Line2D & line)
-{
-	float dy = line.endPos.y - line.startPos.y;
-	float dx = line.endPos.x - line.startPos.x;
 
-	// 垂直时，斜率无穷大
-	if (dx == 0) return std::numeric_limits<float>::infinity();		
-	
-	return  dy/dx;	// 直线的斜率
-}
 
 // 计算出任意角度的两个线段的交点-点斜式/一般式
 /*
@@ -209,27 +263,12 @@ std::vector<Point2D> twoLineIntersection(const Line2D & line1, const Line2D & li
 */
 
 
-
-
-
-
-// 特殊直线的判断
-
-
-
-
-
-
-
 // 其他判断 两直线交集的点。
 Point2D twoLineIntersection1(const Line2D & line1, const Line2D & line2)
 {
 
 }
 
-//std::vector<Point2D> twoLineIntersection(const float &x1, const float &y1, const float &x2, const float &y2)
-//{
-//
-//}
+#endif
 
 #endif // __DL_Line_Clipping_H__

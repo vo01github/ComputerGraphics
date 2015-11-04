@@ -7,7 +7,7 @@
 #include<gl/glut.h> 
 #include "00-DataInit.h"
 
-const float CoordinateL = 0.6*ScreenSize.x;
+const float CoordinateL = 0.6*ScreenSize.x/2;		// 
 const float taiangleL = 0.05*CoordinateL;
 
 static bool isFirstRun = true;		// 用来只执行一次。
@@ -106,43 +106,5 @@ void myDisplay_Draw_3D_Coordinate_System_On_Windows_function(void)
 }  
 
 
-// 拖动窗口时，保持坐标不被压缩或者拉伸的函数，待实现。
-
-//
-//void changeSize(GLsizei w, GLsizei h)
-//{
-//	GLfloat aspectRatio;
-//
-//	if (h == 0)
-//	{
-//		h = 1;
-//	}
-//
-//	glViewport(0, 0, w, h);
-//
-//	glMatrixMode(GL_PROJECTION);
-//	glLoadIdentity();
-//
-//	aspectRatio = (GLfloat)w / (GLfloat)h;
-//
-//	GLdouble left = PlotCubes::xStartCordinate;
-//	GLdouble right = PlotCubes::xEndCordinate;
-//	GLdouble bottom = PlotCubes::yStartCordinate;
-//	GLdouble top = PlotCubes::yEndCordinate;
-//	GLdouble near = PlotCubes::zStartCordinate;
-//	GLdouble far = PlotCubes::zEndCordinate;
-//
-//	if (w <= h)
-//	{
-//		glOrtho(left, right, bottom / aspectRatio, top / aspectRatio, near, far);
-//	}
-//	else
-//	{
-//		glOrtho(left*aspectRatio, right*aspectRatio, bottom, top, near, far);
-//	}
-//
-//	glMatrixMode(GL_MODELVIEW);
-//	glLoadIdentity();
-//}
 
 #endif // __DL_3D_Coordinate_System_H__

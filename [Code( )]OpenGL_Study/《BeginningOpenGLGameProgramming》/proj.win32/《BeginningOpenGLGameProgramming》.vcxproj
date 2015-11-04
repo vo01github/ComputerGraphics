@@ -25,6 +25,7 @@
     <ClInclude Include="..\Classes\03-draw15000Triangles.h" />
     <ClInclude Include="..\Classes\03-drawTRIANGLES.h" />
     <ClInclude Include="..\Classes\[zsj]-3D Coordinate System.h" />
+    <ClInclude Include="..\Classes\[zsj]-Axis Division.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

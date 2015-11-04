@@ -56,5 +56,8 @@
     <ClInclude Include="..\Classes\03-draw15000Triangles.h">
       <Filter>Classes\ZSJ</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\[zsj]-Axis Division.h">
+      <Filter>Classes\ZSJ</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

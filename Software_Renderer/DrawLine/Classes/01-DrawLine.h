@@ -72,11 +72,10 @@ void myDisplay_Draw_Line_On_Windows_function(void)
 			glVertex2f(point.x , point.y);	
 		}
 	}
-	glEnd();  
 
+	glEnd();  
 	glFlush();  
 
-	myDisplay_Draw_3D_Coordinate_System_On_Windows_function();
 }  
 
 

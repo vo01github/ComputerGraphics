@@ -30,6 +30,7 @@ void ProcessKeyboard(unsigned char key,int x,int y)			// 键盘响应
 
 void ProcessMouse(int button,int state,int x,int y)			// 鼠标响应
 {
+
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
 		GLfloat ang = -10;			

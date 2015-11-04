@@ -25,8 +25,8 @@ void changeSize(GLsizei w,GLsizei h);						// 窗口大小改变时调用的登�
 
 void myDisplay(void)  
 {  
-	//myDisplay_Draw_Line_On_Windows_function();
-	myDisplay_Draw_3D_Coordinate_System_On_Windows_function();
+	myDisplay_Draw_Line_On_Windows_function();
+	//myDisplay_Draw_3D_Coordinate_System_On_Windows_function();
 }
 
 //=========================================================================
