@@ -23,7 +23,7 @@ int index = floor( (x-b)/c );
 #if 0
 [-100,100);
 c = 100 - (-100) = 200;
-index = floor((x - 100)/200);
+index = floor((-50 - 100)/200) = floor(-150/200) = -1 ;
 
 #endif
 
