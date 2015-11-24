@@ -59,5 +59,14 @@
     <ClInclude Include="..\Classes\[zsj]-Axis Division.h">
       <Filter>Classes\ZSJ</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\[zsj]-IPC-Pipe.h">
+      <Filter>Classes\ZSJ</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\[zsj]-IPC-NamePipe.h">
+      <Filter>Classes\ZSJ</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NamedPipeServer.h">
+      <Filter>Classes\ZSJ</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -26,6 +26,7 @@
     <ClInclude Include="Classes\01-Line clipping.h" />
     <ClInclude Include="Classes\DrawLineAlgorithm\Bresenham%27s line algorithm.h" />
     <ClInclude Include="Classes\DrawLineAlgorithm\DrawLineInterface.h" />
+    <ClInclude Include="Classes\NamedPipeClient.h" />
     <ClInclude Include="Classes\[zsj]-3D Coordinate System.h" />
     <ClInclude Include="proj.win32\stdafx.h" />
     <ClInclude Include="proj.win32\targetver.h" />

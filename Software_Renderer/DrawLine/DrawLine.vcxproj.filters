@@ -15,6 +15,9 @@
     <Filter Include="Classes\Algorithm">
       <UniqueIdentifier>{e91c560b-9356-4e94-b834-2581d4a80b31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\NamePipe">
+      <UniqueIdentifier>{f9cd89d0-4501-4569-bbfd-bfd0b478e1b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="proj.win32\main.cpp">
@@ -60,6 +63,9 @@
     </ClInclude>
     <ClInclude Include="Classes\[zsj]-3D Coordinate System.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NamedPipeClient.h">
+      <Filter>Classes\NamePipe</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
