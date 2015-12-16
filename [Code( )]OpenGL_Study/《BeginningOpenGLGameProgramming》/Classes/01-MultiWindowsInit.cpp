@@ -56,7 +56,7 @@ void MultiWindows::myDisplay1(void)
 {  
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClear(GL_COLOR_BUFFER_BIT); 
-	glutWireTeapot(0.5);
+	glutWireTeapot(0.1);
 }
 
 // 输入
@@ -96,6 +96,7 @@ int MultiWindows::windowsInit(int argc, _TCHAR* argv[])
 	// callbacks for main window
 	glutDisplayFunc(mainWindowsRender);	
 	glutMouseFunc(&ProcessMouse);
+	glutTimerFunc(500 + delay_call, TimerFunction, 1);
 	glutIdleFunc(renderSceneAll);								// 核心的一行代码
 
 	// 创建子窗口
@@ -103,7 +104,7 @@ int MultiWindows::windowsInit(int argc, _TCHAR* argv[])
 	glutDisplayFunc(myDisplay1);								//绘制子窗口颜色
 	glutPostWindowRedisplay(subWindow1);								//通知标识符为id1的窗口重新绘制
 	glutMouseFunc(&ProcessMouse);
-
+	glutTimerFunc(500 + delay_call, subTimerFunction, 1);
 	glutMainLoop();									// 无限执行的循环，glutMainLoop()会判断窗口是否需要进行重绘， 会自动调用 glutDisplayFunc()中注册的函数。   
 	return 0;  
 }  
@@ -120,3 +121,28 @@ int MultiWindows::windowsInit(int argc, _TCHAR* argv[])
 */
 
 
+void MultiWindows::TimerFunction(int value)
+{
+	//frameCount++;
+
+	//glutPostRedisplay();
+	GLfloat ang = 10;			
+	glRotatef(ang, -1,0,1);
+	//glutPostRedisplay();
+	glutPostWindowRedisplay(mainWindow);
+
+	glutTimerFunc(delay_call, TimerFunction, 1);
+	
+}
+
+void MultiWindows::subTimerFunction(int value)
+{
+	GLfloat ang = 10;			
+	glRotatef(ang, -1,0,1);
+	//glutPostRedisplay();
+	glutPostWindowRedisplay(subWindow1);
+
+
+
+	glutTimerFunc(delay_call, subTimerFunction, 1);
+}

@@ -18,8 +18,8 @@ public:
 
 	static MultiWindows* sharedSceneManager();			// 单例模式
 
-
-
+	static void TimerFunction(int value);				// 给定时器调用的。
+	static void subTimerFunction(int value);				// 给定时器调用的。
 
 
 	//static
