@@ -1,7 +1,4 @@
-﻿#ifndef __OBJECT_MAN_H__
-#define __OBJECT_MAN_H__
-
-
+﻿#pragma once
 
 #include <tchar.h>
 
@@ -17,7 +14,7 @@ public:
 
 	static void TimerFunction(int value);				// 给定时器调用的。
 
-	static void showCubes();
+
 
 	//static
 private:
@@ -35,4 +32,3 @@ class OpenGLwindowsSon  : public  OpenGLwindows
 };
 
 
-#endif // __OBJECT_MAN_H__

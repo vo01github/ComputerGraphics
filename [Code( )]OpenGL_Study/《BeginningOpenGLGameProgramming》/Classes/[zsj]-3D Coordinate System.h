@@ -50,7 +50,7 @@ void myDisplay_Draw_3D_Coordinate_System_On_Windows_function(void)
 	glClear(GL_COLOR_BUFFER_BIT); 
 
 
-	//glutWireTeapot(0.5);
+	glutWireTeapot(0.5);							// 画个大茶壶
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);		// 不加这句就是画一个实心三角形了。
 
