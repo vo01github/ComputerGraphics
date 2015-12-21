@@ -38,6 +38,9 @@
     <ClCompile Include="Classes\02-DrawTriangle.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\02-DrawPolygon.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="proj.win32\stdafx.h">
@@ -74,6 +77,9 @@
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="Classes\02-DrawTriangle.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\02-DrawPolygon.h">
       <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>

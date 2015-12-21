@@ -5,7 +5,6 @@
 #include "00-DataDefinition.h"
 #include "00-DataInit.h"
 #include "DrawLineAlgorithm/DrawLineInterface.h"
-#include "[zsj]-3D Coordinate System.h"
 #include "01-Line clipping.h"
 #include "01-DrawLine.h"
 
@@ -31,7 +30,7 @@ const Line2D  drawLineSet[]	= {
 	{ {10, 120},	{10, -40}	},
 	{ {-10, 120},	{90, 120}	},			// 一条水平线
 };		
-std::vector<Point2D_int> Draw2DPointSet;					// 集成了要画出的点
+
 
 //=========================================================================
 //
@@ -39,7 +38,7 @@ std::vector<Point2D_int> Draw2DPointSet;					// 集成了要画出的点
 //
 //=========================================================================
 
-void myDisplay_Draw_Line_On_Windows_function(void)  
+void myDisplay_Draw_Line_On_Windows_function(std::vector<Point2D_int> draw2DPointSet)  
 {  
 	//用描点法画出直线来  
 	glColor3f(1.0, 0.0, 0.0);				// 决定要画的线的颜色
@@ -49,7 +48,7 @@ void myDisplay_Draw_Line_On_Windows_function(void)
 	clippedWidowsInit();
 
 	for (const auto & line : drawLineSet) {
-		drawLine(line, Draw2DPointSet);	// 计算出要画的直线的点的集合
+		drawLine(line, draw2DPointSet);	// 计算出要画的直线的点的集合
 	}
 
 	glEnd(); 

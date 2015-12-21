@@ -14,6 +14,7 @@
 #include "00-WindowsInit.h"
 #include "01-DrawLine.h"
 #include "02-DrawTriangle.h"
+#include "02-DrawPolygon.h"
 
 //#include "02-ComplexGraphics.h"
 //#include "02-3D Coordinate System.h"
@@ -23,7 +24,7 @@
 // 前置声明
 void changeSize(GLsizei w, GLsizei h);
 
-
+std::vector<Point2D_int> Draw2DPointSet;					// 集成了要画出的点
 
 
 
@@ -33,9 +34,10 @@ void myDisplay()
 	glClear(GL_COLOR_BUFFER_BIT); 
 
 	drawCoordinateSystem();
-	myDisplay_Draw_Triangle_On_Windows_function();
-	//myDisplay_Draw_Line_On_Windows_function();
-
+	myDisplay_Draw_Polygon_On_Windows_function(Draw2DPointSet);
+	//myDisplay_Draw_Triangle_On_Windows_function(Draw2DPointSet);
+	//myDisplay_Draw_Line_On_Windows_function(Draw2DPointSet);
+	
 
 	glFlush(); 
 }
