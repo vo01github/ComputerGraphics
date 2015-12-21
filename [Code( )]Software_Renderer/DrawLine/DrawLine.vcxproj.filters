@@ -29,6 +29,15 @@
     <ClCompile Include="Classes\01-Line clipping.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\00-WindowsInit.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\01-DrawLine.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\02-DrawTriangle.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="proj.win32\stdafx.h">
@@ -62,6 +71,9 @@
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="Classes\[zsj]-3D Coordinate System.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\02-DrawTriangle.h">
       <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>

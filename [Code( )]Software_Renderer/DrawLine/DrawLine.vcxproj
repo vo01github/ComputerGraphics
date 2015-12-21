@@ -11,7 +11,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\00-WindowsInit.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Classes\01-DrawLine.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Classes\01-Line clipping.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Classes\02-DrawTriangle.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Classes\DrawLineAlgorithm\DrawLineInterface.cpp">
@@ -27,6 +36,7 @@
     <ClInclude Include="Classes\00-WindowsInit.h" />
     <ClInclude Include="Classes\01-DrawLine.h" />
     <ClInclude Include="Classes\01-Line clipping.h" />
+    <ClInclude Include="Classes\02-DrawTriangle.h" />
     <ClInclude Include="Classes\DrawLineAlgorithm\Bresenham%27s line algorithm.h" />
     <ClInclude Include="Classes\DrawLineAlgorithm\DrawLineInterface.h" />
     <ClInclude Include="Classes\[zsj]-3D Coordinate System.h" />

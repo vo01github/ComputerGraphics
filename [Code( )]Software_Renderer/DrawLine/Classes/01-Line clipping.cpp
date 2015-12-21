@@ -5,7 +5,8 @@
 #include "00-DataDefinition.h"
 #include "00-DataInit.h"
 #include "01-Line clipping.h"
-//#include <limits.h> 
+#include "00-WindowsInit.h"
+#include <limits.h> 
 using namespace std;
 
 Rect2D ClippingSize;								// 要裁剪的区域
@@ -42,7 +43,7 @@ Rect2D ClippingSize;								// 要裁剪的区域
 // 初始化要裁剪的区域
 void clippedWidowsInit()
 {
-	float scale = 0.5f;
+	float scale = 1.5f;
 	ClippingSize.LeftDownPoint.x = ScreenSize.x * scaleScreen * (-scale);
 	ClippingSize.LeftDownPoint.y = ScreenSize.y * scaleScreen * (-scale);
 	ClippingSize.RightUpPoint.x = ScreenSize.x * scaleScreen * (scale);
@@ -75,8 +76,10 @@ bool clippedLineFromRect(Line2D & checkLine, const Rect2D & checkRect)
 
 
 	std::vector<Point2D> res = twoLineIntersection(checkLine, xVertical, yLevel); 
+	res.push_back(checkLine.startPos);
+	res.push_back(checkLine.endPos);
 
-	// 把在矩形外的交点全部干掉
+	// 把在矩形外的点全部干掉
 	int i = 0;
 	for (Point2D m : res) {
 		if (xL <= m.x && m.x <= xR && 
@@ -86,20 +89,12 @@ bool clippedLineFromRect(Line2D & checkLine, const Rect2D & checkRect)
 	}
 	res.erase(res.begin() + i, res.end());
 	
-	// 把交点连接成线
-	if (res.size() == 2)		// 有2个交点
+	// 把剩下的点连接成线
+	if (res.size() == 2)		// 有2个点
 	{
 		checkLine.startPos = res[0];
 		checkLine.endPos = res[1];
-	} else if (res.size() == 1) {  // 有1个交点
-		if ( xL < checkLine.startPos.x && checkLine.startPos.x < xR && 
-			 yDown < checkLine.startPos.y && checkLine.startPos.y < yUp )
-		{
-			checkLine.endPos = res[0];
-		} else {
-			checkLine.startPos = res[0];
-		}
-	} else {
+	} else if (res.size() == 0) {		// 有0个点
 		return false;
 	}
 

@@ -1,7 +1,5 @@
 ﻿
-
-#ifndef __DL_DATA_DEFINITION_H__
-#define __DL_DATA_DEFINITION_H__
+#pragma once
 
 
 //=========================================================================
@@ -21,12 +19,18 @@ typedef struct Point_2D_World_Discrete_Integer		// 点离散化成整型
 	int y;
 }Point2D_int;
 
-
 typedef struct Line_2D_World
 {
 	Point2D startPos;
 	Point2D endPos;
 }Line2D;
+
+typedef struct Triangle_2D_World
+{
+	Point2D p1;
+	Point2D p2;
+	Point2D p3;
+}Triangle2D;
 
 typedef struct Rect_2D_World
 {
@@ -35,4 +39,3 @@ typedef struct Rect_2D_World
 }Rect2D;
 
 
-#endif // __DL_DATA_DEFINITION_H__
