@@ -9,6 +9,7 @@
 #include "00-DataInit.h"
 #include "DrawLineAlgorithm/DrawLineInterface.h"
 #include "[zsj]-3D Coordinate System.h"
+#include "01-Line clipping.h"
 
 
 //=========================================================================
@@ -31,7 +32,7 @@ const Line2D  drawLineSet[]	= {
 	{ {-10, -20},	{-120, -40}	},
 
 	{ {10, 120},	{10, -40}	},
-	{ {-10, 120},	{90, 120}	},
+	{ {-10, 120},	{90, 120}	},			// 一条水平线
 };		
 std::vector<Point2D_int> drawPointSet;					// 集成了要画出的点
 
@@ -62,15 +63,26 @@ void myDisplay_Draw_Line_On_Windows_function(void)
 	//用描点法画出直线来  
 	glColor3f(1.0, 0.0, 0.0);				// 决定要画的线的颜色
 	glBegin(GL_POINTS); 
+
+	// 初始化要裁剪的区域
+	clippedWidowsInit();
+
 	for (const auto & line : drawLineSet) {
 		drawPointSet.clear();
 
-		//计算出要画的点
-		draw2DLine(line, drawPointSet);
-		for (const auto & point : drawPointSet) {
-			//glVertex2f(point.x *2.0f/ScreenSize.x, point.y*2.0f/ScreenSize.y);		// 坐标转换，转换成 -1.0～1.0的坐标
-			glVertex2f(point.x , point.y);	
+		// 对要画的直线进行裁剪
+		Line2D clippedLine = line;		// clippedLineFromRect 会修改传递进去的参数 line
+		if (clippedLineFromRect(clippedLine, ClippingSize))
+		{
+			draw2DLine(clippedLine, drawPointSet); // 计算出要画的点
+
+			// 开始画
+			for (const auto & point : drawPointSet) {
+				//glVertex2f(point.x *2.0f/ScreenSize.x, point.y*2.0f/ScreenSize.y);		// 坐标转换，转换成 -1.0～1.0的坐标
+				glVertex2f(point.x , point.y);	
+			}
 		}
+		
 	}
 
 	glEnd();  

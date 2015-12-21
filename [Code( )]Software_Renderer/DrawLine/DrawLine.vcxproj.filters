@@ -26,6 +26,9 @@
     <ClCompile Include="Classes\DrawLineAlgorithm\DrawLineInterface.cpp">
       <Filter>Classes\Algorithm</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\01-Line clipping.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="proj.win32\stdafx.h">

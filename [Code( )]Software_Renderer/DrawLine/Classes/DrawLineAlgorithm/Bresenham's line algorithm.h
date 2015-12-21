@@ -202,11 +202,6 @@ void creat_Line_Point_Set_By_Int_Compute(const float startX, const float  startY
 
 
 
-// 第4版 - 一般式 8个区间都可以画 
-/*
-	对应坐标轴 的8个区间：
-*/
-
 
 
 /*
