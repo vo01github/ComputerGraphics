@@ -1,0 +1,15 @@
+﻿生成启动时间为 2016/1/7 20:18:42。
+     1>项目“D:\github\Others_Code\2016-01-07\testHXT\testHXT\testHXT.vcxproj”在节点 2 上(Build 个目标)。
+       项目文件包含 ToolsVersion="12.0" 设置，但此工具集未知或缺失。您可以通过为此工具集安装相应的 .NET Framework 来解决此问题。将项目视为具有 ToolsVersion="4.0" 设置。
+     1>ClCompile:
+         F:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\testHXT.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt testHXT.cpp
+         testHXT.cpp
+       Link:
+         F:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\github\Others_Code\2016-01-07\testHXT\Debug\testHXT.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\github\Others_Code\2016-01-07\testHXT\Debug\testHXT.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\github\Others_Code\2016-01-07\testHXT\Debug\testHXT.lib" /MACHINE:X86 Debug\stdafx.obj
+         Debug\testHXT.obj
+         testHXT.vcxproj -> D:\github\Others_Code\2016-01-07\testHXT\Debug\testHXT.exe
+     1>已完成生成项目“D:\github\Others_Code\2016-01-07\testHXT\testHXT\testHXT.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.30
