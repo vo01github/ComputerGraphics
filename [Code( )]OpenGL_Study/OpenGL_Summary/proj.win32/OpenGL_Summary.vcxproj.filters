@@ -18,11 +18,17 @@
     <Filter Include="Classes\窗口环境">
       <UniqueIdentifier>{5c7122fe-21fa-4c45-837b-3b326a67e8c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\双缓冲">
+      <UniqueIdentifier>{bf0bc955-725f-41e8-82aa-f50a059f6f73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\双窗口">
+      <UniqueIdentifier>{c844d7b3-9ff5-4e3d-9cc8-3b7b228be4e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\定时器">
+      <UniqueIdentifier>{3fa73b65-11c4-4909-9cb2-e443a768d832}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Classes\[glRotatef%28%29].h">
-      <Filter>Classes\旋转</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>win32</Filter>
     </ClInclude>
@@ -35,6 +41,12 @@
     <ClInclude Include="..\Classes\00-DataDefinition.h">
       <Filter>Classes\窗口环境</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\[glRotatef].h">
+      <Filter>Classes\旋转</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\[glutSwapBuffers].h">
+      <Filter>Classes\双缓冲</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +57,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\01-windowsInit.cpp">
       <Filter>Classes\窗口环境</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\[glRotatef].cpp">
+      <Filter>Classes\旋转</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\[glutSwapBuffers].cpp">
+      <Filter>Classes\双缓冲</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

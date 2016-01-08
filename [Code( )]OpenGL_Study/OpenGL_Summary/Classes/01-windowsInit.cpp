@@ -10,8 +10,8 @@ using namespace std;
 
 #include "01-windowsInit.h"
 #include "00-DataDefinition.h"
-#include "[glRotatef()].h"
-
+#include "[glRotatef].h"
+#include "[glutSwapBuffers].h"
 
 OpenGLwindows* OpenGLwindows::m_pSceneManager = NULL;
 
@@ -24,13 +24,6 @@ OpenGLwindows* OpenGLwindows::sharedSceneManager()
 	return m_pSceneManager;
 }
 
-
-void OpenGLwindows::myDisplay(void)  
-{  
-	myDisplay_Test_Rotate_Obj();
-
-}
-
 //=========================================================================
 //
 //							窗口初始化
@@ -38,6 +31,28 @@ void OpenGLwindows::myDisplay(void)
 //=========================================================================
 int OpenGLwindows::windowsInit(int argc,_TCHAR* argv[])  
 {  
+	//GlRotatef::initRotate(argc, argv);
+	GlutSwapBuffers::init(argc, argv);
+	return 0;  
+}  
+
+
+
+//=========================================================================
+//
+//							模板
+//
+//=========================================================================
+
+// 模板
+void OpenGLwindows::myDisplay(void)  
+{  
+
+}
+
+// 模板
+int OpenGLwindows::templateTest( int argc,_TCHAR* argv[] )
+{
 	glutInit(&argc,(char**)argv);					// 初始化glut,必须调用，复制黏贴这句话即可  
 	glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE);	// 设置显示方式，RGB、单缓冲。当然还有GLUT_INDEX索引颜色 GLUT_DOUBLE双缓冲(Qt中看到过双缓冲)  
 	glutInitWindowPosition(300,300);				// 窗口在显示器屏幕中的位置，指定的是窗口左上角的坐标。(0,0)就会显示在屏幕左上角。  
@@ -52,7 +67,9 @@ int OpenGLwindows::windowsInit(int argc,_TCHAR* argv[])
 
 	glutMainLoop();									// 无限执行的循环，glutMainLoop()会判断窗口是否需要进行重绘， 会自动调用 glutDisplayFunc()中注册的函数。   
 	return 0;  
-}  
+}
+
+
 
 /*	初始化说明
 1、首先将必要的头文件glut.h包含进来，以便使用opengl提供的函数库

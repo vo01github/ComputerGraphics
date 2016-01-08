@@ -1,29 +1,46 @@
 ﻿
-#ifndef __OS_glRotatef_USE_H__
-#define __OS_glRotatef_USE_H__
-
 
 #include <vector>
 #include<gl/glut.h> 
+#include "[glRotatef].h"
 
 
+
+// 数据部分
 const float CoordinateL = 0.6;		// 要画的坐标轴长
-const float taiangleL = 0.05;		// 要画在坐标轴头上的三角形长
+const float taiangleL	= 0.05;		// 要画在坐标轴头上的三角形长
 
 static bool isFirstRun = true;
 
-float changeNumSize(float insert){
+// 类定义部分
+float GlRotatef::changeNumSize(float insert)
+{
 	return (insert/8000.0f);
 }
 
-// 前置声明
-void Draw_3D_Coordinate_System_On_Windows_function(void); 
+void GlRotatef::myDisplay()  
+{  
+	GlRotatef::myDisplay_Rotate_Obj();
+
+}
+
+int GlRotatef::initRotate( int argc,_TCHAR* argv[] )
+{
+	glutInit(&argc,(char**)argv);					// 初始化glut,必须调用，复制黏贴这句话即可  
+	glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE);	// 设置显示方式，RGB、单缓冲。当然还有GLUT_INDEX索引颜色 GLUT_DOUBLE双缓冲(Qt中看到过双缓冲)  
+	glutInitWindowPosition(300,300);				// 窗口在显示器屏幕中的位置，指定的是窗口左上角的坐标。(0,0)就会显示在屏幕左上角。  
+	glutInitWindowSize(800.0f, 800.0f);					// 设置所需窗口大小  
+
+	glutCreateWindow((char*)argv[0]);				// 这样也行啊？
+	glutDisplayFunc(myDisplay);	
+	glutMainLoop();									// 无限执行的循环，glutMainLoop()会判断窗口是否需要进行重绘， 会自动调用 glutDisplayFunc()中注册的函数。   
+	return 0;  
+}
+
 
 /*
 	旋转有2种方式：一个旋转物体【使用 glRotatef()】，一个旋转摄像头【使用gluLookAt()】。
 */
-
-
 
 /*
 参考文章：
@@ -57,7 +74,7 @@ http://blog.csdn.net/gamesdev/article/details/9929211
 	请看 myDisplay_Test_Rotate_Obj()
 */
 
-void myDisplay_Test_Rotate_Obj(void)
+void GlRotatef::myDisplay_Test_Rotate_Obj()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -87,10 +104,7 @@ void myDisplay_Test_Rotate_Obj(void)
 /*
 	画一个3D坐标系，然后进行旋转，使之出现在我们需要的视角上面。
 */
-
- 
-
-void myDisplay_Rotate_Obj()
+void GlRotatef::myDisplay_Rotate_Obj()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -111,7 +125,7 @@ void myDisplay_Rotate_Obj()
 
 
 //  ================================ 绘制3D 坐标轴 ================================
-void Draw_3D_Coordinate_System_On_Windows_function(void)  
+void GlRotatef::Draw_3D_Coordinate_System_On_Windows_function(void)  
 {  
 	glClear(GL_COLOR_BUFFER_BIT); 
 
@@ -170,4 +184,3 @@ void Draw_3D_Coordinate_System_On_Windows_function(void)
 
 
 
-#endif // __OS_glRotatef_USE_H__

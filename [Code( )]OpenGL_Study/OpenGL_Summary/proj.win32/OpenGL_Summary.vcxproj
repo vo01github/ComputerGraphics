@@ -13,12 +13,19 @@
   <ItemGroup>
     <ClInclude Include="..\Classes\00-DataDefinition.h" />
     <ClInclude Include="..\Classes\01-windowsInit.h" />
-    <ClInclude Include="..\Classes\[glRotatef%28%29].h" />
+    <ClInclude Include="..\Classes\[glRotatef].h" />
+    <ClInclude Include="..\Classes\[glutSwapBuffers].h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\01-windowsInit.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Classes\[glRotatef].cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Classes\[glutSwapBuffers].cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="main.cpp" />

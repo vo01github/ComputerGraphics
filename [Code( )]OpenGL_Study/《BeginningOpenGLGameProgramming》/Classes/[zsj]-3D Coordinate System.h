@@ -49,7 +49,7 @@ void myDisplay_Draw_3D_Coordinate_System_On_Windows_function(void)
 
 	glClear(GL_COLOR_BUFFER_BIT); 
 
-
+	glColor3f(1.0, 0.0, 0.0);	// 红色
 	glutWireTeapot(0.5);							// 画个大茶壶
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);		// 不加这句就是画一个实心三角形了。
@@ -101,7 +101,7 @@ void myDisplay_Draw_3D_Coordinate_System_On_Windows_function(void)
 
 	glEnd();  
 	glFlush();  
-
+	//glutSwapBuffers();
 
 }  
 

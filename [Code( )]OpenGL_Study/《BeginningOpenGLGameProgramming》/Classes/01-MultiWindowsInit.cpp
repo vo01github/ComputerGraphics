@@ -15,6 +15,11 @@ using namespace std;
 #include "00-DataDefinition.h"
 #include "[zsj]-3D Coordinate System.h"
 
+
+// 双窗口 可参考的文章 示例;
+// http://cg2010studio.com/2011/06/27/subwindow/
+
+
 //#define  CUBE_ARRAY_SIZE 24   //立方体每个面有4个顶点
 float* MultiWindows::m_corners = NULL;
 MultiWindows* MultiWindows::m_pSceneManager = NULL;
@@ -49,14 +54,22 @@ void MultiWindows::renderSceneAll( void )
 
 void MultiWindows::mainWindowsRender(void)  
 {  
-	myDisplay_Draw_3D_Coordinate_System_On_Windows_function();
+	// 测试用例
+	glClear(GL_COLOR_BUFFER_BIT); 
+	glColor3f(1.0, 0.0, 0.0);		// 红色
+	glutWireTeapot(0.5);			// 画个大茶壶
+	glutSwapBuffers();
+	
+	//myDisplay_Draw_3D_Coordinate_System_On_Windows_function();
 }
 
 void MultiWindows::myDisplay1(void)  
 {  
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClear(GL_COLOR_BUFFER_BIT); 
+	glColor3f(1.0, 1.0, 0.0);	//黄色
 	glutWireTeapot(0.1);
+	//glFlush(); 
+	glutSwapBuffers();
 }
 
 // 输入
@@ -86,7 +99,8 @@ static void ProcessMouse(int button,int state,int x,int y)			// 鼠标响应
 int MultiWindows::windowsInit(int argc, _TCHAR* argv[])  
 {  
 	glutInit(&argc, (char**) argv);					// 初始化glut,必须调用，复制黏贴这句话即可  
-	glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE);	// 设置显示方式，RGB、单缓冲。当然还有GLUT_INDEX索引颜色 GLUT_DOUBLE双缓冲(Qt中看到过双缓冲)  
+	//glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE);	// 设置显示方式，RGB、单缓冲。当然还有GLUT_INDEX索引颜色 GLUT_DOUBLE双缓冲(Qt中看到过双缓冲) 
+	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
 	glutInitWindowPosition(300,300);				// 窗口在显示器屏幕中的位置，指定的是窗口左上角的坐标。(0,0)就会显示在屏幕左上角。  
 	glutInitWindowSize(ScreenSize.x, ScreenSize.y);					// 设置所需窗口大小  
 
@@ -96,15 +110,15 @@ int MultiWindows::windowsInit(int argc, _TCHAR* argv[])
 	// callbacks for main window
 	glutDisplayFunc(mainWindowsRender);	
 	glutMouseFunc(&ProcessMouse);
-	glutTimerFunc(500 + delay_call, TimerFunction, 1);
-	glutIdleFunc(renderSceneAll);								// 核心的一行代码
+	//glutTimerFunc(500 + delay_call, TimerFunction, 1);
+	//glutIdleFunc(renderSceneAll);								// 核心的一行代码
 
 	// 创建子窗口
 	subWindow1 = glutCreateSubWindow(mainWindow , 30, 30, 250, 250);		//子窗口的原点和尺寸，（其原点是主窗口的右上角起始位置）
 	glutDisplayFunc(myDisplay1);								//绘制子窗口颜色
 	glutPostWindowRedisplay(subWindow1);								//通知标识符为id1的窗口重新绘制
 	glutMouseFunc(&ProcessMouse);
-	glutTimerFunc(500 + delay_call, subTimerFunction, 1);
+	//glutTimerFunc(500 + delay_call, subTimerFunction, 1);
 	glutMainLoop();									// 无限执行的循环，glutMainLoop()会判断窗口是否需要进行重绘， 会自动调用 glutDisplayFunc()中注册的函数。   
 	return 0;  
 }  

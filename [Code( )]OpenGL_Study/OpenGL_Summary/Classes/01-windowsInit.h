@@ -17,6 +17,8 @@ public:
 
 private:
 	static OpenGLwindows* m_pSceneManager;
+
+	int templateTest(int argc,_TCHAR* argv[]);
 };
 
 
