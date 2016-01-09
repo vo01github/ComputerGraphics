@@ -36,6 +36,9 @@
     <Filter Include="Classes\02动画-绑定应用程序空闲时事件">
       <UniqueIdentifier>{de8b5d6f-82c3-49b2-aa52-5596a4d46174}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\03键盘+特殊键">
+      <UniqueIdentifier>{23a842d9-8d6e-4ddf-b4c0-5e056fe3c90b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -65,6 +68,9 @@
     <ClInclude Include="..\Classes\[glutIdleFunc].h">
       <Filter>Classes\02动画-绑定应用程序空闲时事件</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\[glutKeyboardFunc].h">
+      <Filter>Classes\03键盘+特殊键</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -90,6 +96,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\[glutIdleFunc].cpp">
       <Filter>Classes\02动画-绑定应用程序空闲时事件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\[glutKeyboardFunc].cpp">
+      <Filter>Classes\03键盘+特殊键</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -15,7 +15,7 @@ using namespace std;
 #include "[glutDisplayFunc].h"
 #include "[glutReshapeFunc].h"
 #include "[glutIdleFunc].h"
-
+#include "[glutKeyboardFunc].h"
 
 OpenGLwindows* OpenGLwindows::m_pSceneManager = NULL;
 
@@ -35,7 +35,7 @@ OpenGLwindows* OpenGLwindows::sharedSceneManager()
 //=========================================================================
 int OpenGLwindows::windowsInit(int argc,_TCHAR* argv[])  
 {  
-	GlutIdleFunc::init(argc, argv);
+	GlutKeyboardFunc::init(argc, argv);
 	return 0;  
 }  
 

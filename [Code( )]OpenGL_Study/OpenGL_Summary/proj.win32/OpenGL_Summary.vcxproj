@@ -16,6 +16,7 @@
     <ClInclude Include="..\Classes\[glRotatef].h" />
     <ClInclude Include="..\Classes\[glutDisplayFunc].h" />
     <ClInclude Include="..\Classes\[glutIdleFunc].h" />
+    <ClInclude Include="..\Classes\[glutKeyboardFunc].h" />
     <ClInclude Include="..\Classes\[glutReshapeFunc].h" />
     <ClInclude Include="..\Classes\[glutSwapBuffers].h" />
     <ClInclude Include="stdafx.h" />
@@ -32,6 +33,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Classes\[glutIdleFunc].cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Classes\[glutKeyboardFunc].cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Classes\[glutReshapeFunc].cpp">
