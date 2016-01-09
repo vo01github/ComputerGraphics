@@ -10,8 +10,5 @@ public:
 
 private:
 	static	void	displayCall();				//  窗口注册的函数
-	static	void	showLocusBegin();				//	只绘制一次的函数，绘制坐标系
-	static	void	TimerFunction(int value);		//	定时函数
-
 };
 

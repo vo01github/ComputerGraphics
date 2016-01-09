@@ -33,6 +33,9 @@
     <Filter Include="Classes\01改变窗体大小">
       <UniqueIdentifier>{8646f5ca-839f-45af-9111-e76a42135723}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\02动画-绑定应用程序空闲时事件">
+      <UniqueIdentifier>{de8b5d6f-82c3-49b2-aa52-5596a4d46174}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -56,6 +59,12 @@
     <ClInclude Include="..\Classes\[glutDisplayFunc].h">
       <Filter>Classes\00初始化</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\[glutReshapeFunc].h">
+      <Filter>Classes\01改变窗体大小</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\[glutIdleFunc].h">
+      <Filter>Classes\02动画-绑定应用程序空闲时事件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -75,6 +84,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\[glutDisplayFunc].cpp">
       <Filter>Classes\00初始化</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\[glutReshapeFunc].cpp">
+      <Filter>Classes\01改变窗体大小</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\[glutIdleFunc].cpp">
+      <Filter>Classes\02动画-绑定应用程序空闲时事件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

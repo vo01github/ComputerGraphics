@@ -13,6 +13,8 @@ using namespace std;
 #include "[glRotatef].h"
 #include "[glutSwapBuffers].h"
 #include "[glutDisplayFunc].h"
+#include "[glutReshapeFunc].h"
+#include "[glutIdleFunc].h"
 
 
 OpenGLwindows* OpenGLwindows::m_pSceneManager = NULL;
@@ -33,8 +35,7 @@ OpenGLwindows* OpenGLwindows::sharedSceneManager()
 //=========================================================================
 int OpenGLwindows::windowsInit(int argc,_TCHAR* argv[])  
 {  
-	//GlRotatef::initRotate(argc, argv);
-	GlutDisplayFunc::init(argc, argv);
+	GlutIdleFunc::init(argc, argv);
 	return 0;  
 }  
 
