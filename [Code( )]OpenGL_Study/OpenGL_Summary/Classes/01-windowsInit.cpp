@@ -12,6 +12,8 @@ using namespace std;
 #include "00-DataDefinition.h"
 #include "[glRotatef].h"
 #include "[glutSwapBuffers].h"
+#include "[glutDisplayFunc].h"
+
 
 OpenGLwindows* OpenGLwindows::m_pSceneManager = NULL;
 
@@ -32,7 +34,7 @@ OpenGLwindows* OpenGLwindows::sharedSceneManager()
 int OpenGLwindows::windowsInit(int argc,_TCHAR* argv[])  
 {  
 	//GlRotatef::initRotate(argc, argv);
-	GlutSwapBuffers::init(argc, argv);
+	GlutDisplayFunc::init(argc, argv);
 	return 0;  
 }  
 

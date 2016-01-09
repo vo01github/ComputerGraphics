@@ -21,11 +21,17 @@
     <Filter Include="Classes\双缓冲">
       <UniqueIdentifier>{bf0bc955-725f-41e8-82aa-f50a059f6f73}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\双窗口">
-      <UniqueIdentifier>{c844d7b3-9ff5-4e3d-9cc8-3b7b228be4e2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes\定时器">
       <UniqueIdentifier>{3fa73b65-11c4-4909-9cb2-e443a768d832}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\多窗口">
+      <UniqueIdentifier>{c844d7b3-9ff5-4e3d-9cc8-3b7b228be4e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\00初始化">
+      <UniqueIdentifier>{2c40758c-19ef-4b9b-b668-8711b9544077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\01改变窗体大小">
+      <UniqueIdentifier>{8646f5ca-839f-45af-9111-e76a42135723}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +53,9 @@
     <ClInclude Include="..\Classes\[glutSwapBuffers].h">
       <Filter>Classes\双缓冲</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\[glutDisplayFunc].h">
+      <Filter>Classes\00初始化</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,6 +72,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\[glutSwapBuffers].cpp">
       <Filter>Classes\双缓冲</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\[glutDisplayFunc].cpp">
+      <Filter>Classes\00初始化</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

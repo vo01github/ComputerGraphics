@@ -26,10 +26,11 @@ MultiWindows* MultiWindows::m_pSceneManager = NULL;
 int MultiWindows::frameCount = 0;
 
 const float	screen_scale = 1.0f/2000.0f;				// 缩放比例
-const int		delay_call = 500;						// ms 毫秒，延迟多少 毫秒来调用函数。
+const int		delay_call = 100;						// ms 毫秒，延迟多少 毫秒来调用函数。
 
 static int mainWindow;
 static int subWindow1; 
+static int subWindow2;
 
 MultiWindows* MultiWindows::sharedSceneManager()
 {
@@ -56,19 +57,74 @@ void MultiWindows::mainWindowsRender(void)
 {  
 	// 测试用例
 	glClear(GL_COLOR_BUFFER_BIT); 
-	glColor3f(1.0, 0.0, 0.0);		// 红色
+	glColor3f(1.0, 1.0, 1.0);		// 白色
 	glutWireTeapot(0.5);			// 画个大茶壶
-	glutSwapBuffers();
 	
-	//myDisplay_Draw_3D_Coordinate_System_On_Windows_function();
+	
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);		// 不加这句就是画一个实心三角形了。
+
+	// 绘制坐标轴的 直线
+	glBegin(GL_LINES);
+	glColor3f(1.0, 1.0, 0.0);	//x轴 黄色
+	glVertex3f(-CoordinateL, 0.0, 0.0);
+	glVertex3f(CoordinateL, 0.0, 0.0);
+
+	glColor3f(0.0, 1.0, 0.0);	//y轴 绿色
+	glVertex3f(0.0, -CoordinateL, 0.0);
+	glVertex3f(0.0, CoordinateL, 0.0);
+
+	glColor3f(1.0, 0.0, 0.0);	//z轴 红色
+	glVertex3f(0.0, 0.0, 0.0);
+	glVertex3f(0.0, 0.0, -CoordinateL);
+	glEnd();
+
+	// 绘制坐标轴的 箭头
+	glBegin(GL_TRIANGLES);
+
+	glColor3f(1.0, 1.0, 0.0);	// x轴 黄色
+	glVertex3f(CoordinateL-taiangleL, taiangleL, 0);
+	glVertex3f(CoordinateL, 0, 0);
+	glVertex3f(CoordinateL-taiangleL, -taiangleL, 0);
+
+	glVertex3f(CoordinateL-taiangleL, 0, taiangleL);
+	glVertex3f(CoordinateL, 0, 0);
+	glVertex3f(CoordinateL-taiangleL, 0, -taiangleL);
+
+	glColor3f(0.0, 1.0, 0.0);	// y轴 绿色
+	glVertex3f(0, CoordinateL, 0);
+	glVertex3f(taiangleL, CoordinateL-taiangleL, 0);
+	glVertex3f(-taiangleL, CoordinateL-taiangleL, 0);
+
+	glVertex3f(0, CoordinateL, 0);
+	glVertex3f(0, CoordinateL-taiangleL, taiangleL);
+	glVertex3f(0, CoordinateL-taiangleL, -taiangleL);
+
+	glColor3f(1.0, 0.0, 0.0);	// z轴 红色
+	glVertex3f(0, 0, -CoordinateL);
+	glVertex3f(0, taiangleL, -CoordinateL + taiangleL);
+	glVertex3f(0, -taiangleL, -CoordinateL + taiangleL);
+
+	glVertex3f(0, 0, -CoordinateL);
+	glVertex3f(taiangleL, 0, -CoordinateL + taiangleL);
+	glVertex3f( -taiangleL, 0, -CoordinateL + taiangleL);
+
+	glEnd(); 
+	glutSwapBuffers();
 }
 
 void MultiWindows::myDisplay1(void)  
 {  
 	glClear(GL_COLOR_BUFFER_BIT); 
 	glColor3f(1.0, 1.0, 0.0);	//黄色
-	glutWireTeapot(0.1);
-	//glFlush(); 
+	glutWireTeapot(0.5); 
+	glutSwapBuffers();
+}
+
+void MultiWindows::myDisplay2(void)  
+{  
+	glClear(GL_COLOR_BUFFER_BIT); 
+	glColor3f(0.0, 0.0, 1.0);	//色蓝
+	glutWireTeapot(0.5); 
 	glutSwapBuffers();
 }
 
@@ -79,12 +135,14 @@ static void ProcessMouse(int button,int state,int x,int y)			// 鼠标响应
 	{
 		GLfloat ang = -10;			
 		glRotatef(ang, -1,0,1);
-		glutPostRedisplay();
+		glutPostRedisplay();		// 标记当前窗口需要重新绘制
+
 	} else if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
 	{
 		GLfloat ang = 10;			
 		glRotatef(ang, -1,0,1);
 		glutPostRedisplay();
+
 	}
 }
 
@@ -106,19 +164,26 @@ int MultiWindows::windowsInit(int argc, _TCHAR* argv[])
 
 	// 创建主窗口
 	mainWindow  = glutCreateWindow((char*)argv[0]);				// 这样也行啊？
-
-	// callbacks for main window
-	glutDisplayFunc(mainWindowsRender);	
-	glutMouseFunc(&ProcessMouse);
-	//glutTimerFunc(500 + delay_call, TimerFunction, 1);
+	glutDisplayFunc(mainWindowsRender);							// callbacks for main window
+	glutMouseFunc(ProcessMouse);					// 主窗口 开启响应 鼠标函数
+	//glutTimerFunc(delay_call, TimerFunction, 1);
 	//glutIdleFunc(renderSceneAll);								// 核心的一行代码
 
-	// 创建子窗口
+	
+
+	// 创建子窗口1
 	subWindow1 = glutCreateSubWindow(mainWindow , 30, 30, 250, 250);		//子窗口的原点和尺寸，（其原点是主窗口的右上角起始位置）
 	glutDisplayFunc(myDisplay1);								//绘制子窗口颜色
-	glutPostWindowRedisplay(subWindow1);								//通知标识符为id1的窗口重新绘制
-	glutMouseFunc(&ProcessMouse);
+	//glutPostWindowRedisplay(subWindow1);						//通知标识符为id1的窗口重新绘制
+	glutMouseFunc(&ProcessMouse);					// 子窗口 开启响应 鼠标函数
 	//glutTimerFunc(500 + delay_call, subTimerFunction, 1);
+
+	// 创建子窗口2
+	subWindow2 = glutCreateSubWindow(mainWindow , 100, 100, 250, 250);		//子窗口的原点和尺寸，（其原点是主窗口的右上角起始位置）
+	glutDisplayFunc(myDisplay2);								//绘制子窗口颜色
+	glutMouseFunc(&ProcessMouse);					// 子窗口 开启响应 鼠标函数
+
+
 	glutMainLoop();									// 无限执行的循环，glutMainLoop()会判断窗口是否需要进行重绘， 会自动调用 glutDisplayFunc()中注册的函数。   
 	return 0;  
 }  
@@ -139,12 +204,11 @@ void MultiWindows::TimerFunction(int value)
 {
 	//frameCount++;
 
-	//glutPostRedisplay();
+
 	GLfloat ang = 10;			
 	glRotatef(ang, -1,0,1);
-	//glutPostRedisplay();
-	glutPostWindowRedisplay(mainWindow);
-
+	glutPostWindowRedisplay(mainWindow);			// 指定的窗口需要重新绘制，去调用 glutDisplayFunc(mainWindowsRender); 里注册的 mainWindowsRender 函数。
+	//glutPostRedisplay();							// 标记当前窗口的图像层需要重新绘制
 	glutTimerFunc(delay_call, TimerFunction, 1);
 	
 }
@@ -153,10 +217,6 @@ void MultiWindows::subTimerFunction(int value)
 {
 	GLfloat ang = 10;			
 	glRotatef(ang, -1,0,1);
-	//glutPostRedisplay();
 	glutPostWindowRedisplay(subWindow1);
-
-
-
-	glutTimerFunc(delay_call, subTimerFunction, 1);
+	glutTimerFunc(500+delay_call, subTimerFunction, 1);
 }

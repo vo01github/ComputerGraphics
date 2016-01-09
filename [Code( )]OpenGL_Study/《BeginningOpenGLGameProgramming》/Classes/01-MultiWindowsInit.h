@@ -14,6 +14,7 @@ public:
 	void static renderSceneAll(void);					// 所有 窗口的渲染
 	void static mainWindowsRender(void);				// 主窗口渲染
 	void static myDisplay1(void);						// 子窗口渲染
+	void static myDisplay2(void);						// 子窗口渲染
 
 
 	static MultiWindows* sharedSceneManager();			// 单例模式
