@@ -71,10 +71,9 @@ int GlutDisplayFunc::init( int argc,_TCHAR* argv[] )
 	glutInitWindowPosition(100, 100);				// 定义窗体的位置
 	glutInitWindowSize(800, 800);					// 定义窗体的大小
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);	// 定义显示模式
+	glutCreateWindow("初始化");						// 完成以上3个以后就可以定义窗体了
 	
-	glutCreateWindow("全局地图和轨迹显示");			// 完成以上3个以后就可以定义窗体了
-	
-	glutDisplayFunc(displayCall);					// 渲染函数和回调注册
+	glutDisplayFunc(displayCall);					// 注册-渲染函数-回调
 
 	glutMainLoop();									// 事件处理死循环
 	

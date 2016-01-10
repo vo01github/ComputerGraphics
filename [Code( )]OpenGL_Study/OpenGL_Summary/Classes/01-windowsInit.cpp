@@ -37,7 +37,7 @@ OpenGLwindows* OpenGLwindows::sharedSceneManager()
 //=========================================================================
 int OpenGLwindows::windowsInit(int argc,_TCHAR* argv[])  
 {  
-	GluLookAt::init(argc, argv);
+	GlutReshapeFunc::init(argc, argv);
 	return 0;  
 }  
 
