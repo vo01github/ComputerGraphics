@@ -42,6 +42,9 @@
     <Filter Include="Classes\04移动镜头">
       <UniqueIdentifier>{228a5c6c-a824-4cdf-922f-b391ca145c87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\09矩阵变换">
+      <UniqueIdentifier>{9b47053a-f4c1-4ba8-b02b-157e469c4907}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

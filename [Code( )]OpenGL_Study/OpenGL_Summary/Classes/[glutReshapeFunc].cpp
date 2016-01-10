@@ -86,8 +86,6 @@ void GlutReshapeFunc::changeSizeCall(int w, int h)
 
 	// Get Back to the Modelview
 	glMatrixMode(GL_MODELVIEW);
-
-
 }
 
 

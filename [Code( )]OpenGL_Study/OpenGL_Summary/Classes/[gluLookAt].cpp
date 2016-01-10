@@ -12,6 +12,8 @@
 //=========================================================================
 /*
 
+教学文章
+http://www.cnblogs.com/live41/p/3386597.html
 */
 static float angle=0.0;
 // actual vector representing the camera's direction

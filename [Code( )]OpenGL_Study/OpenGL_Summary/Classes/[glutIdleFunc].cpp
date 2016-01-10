@@ -31,16 +31,12 @@ void GlutIdleFunc::renderScene(void) {
 	// Reset transformations
 	glLoadIdentity();
 
-#if 0
-	// Set the camera - 这个好像没有必要
-	gluLookAt(    0.0f, 0.0f, 1.0f,
+	// Set the camera
+	gluLookAt(    0.0f, 0.0f, 10.0f,
 		0.0f, 0.0f,  0.0f,
 		0.0f, 1.0f,  0.0f);
-#endif
 
-	//glRotatef(angle, 0.0f, 1.0f, 0.0f);	// 绕着 y轴旋转
-	glRotatef(angle, 0.0f, 0.0f, 1.0f);		// 绕着 z轴旋转
-
+	glRotatef(angle, 0.0f, 1.0f, 0.0f);	// 绕着 y轴旋转
 
 	glBegin(GL_TRIANGLES);
 	glVertex3f(-1.0f,-1.0f, 0.0f);
@@ -62,7 +58,7 @@ int GlutIdleFunc::init( int argc,_TCHAR* argv[] )
 	glutInitWindowPosition(100, 100);				// 定义窗体的位置
 	glutInitWindowSize(800, 800);					// 定义窗体的大小
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);	// 定义显示模式
-	glutCreateWindow("全局地图和轨迹显示");			// 完成以上3个以后就可以定义窗体了
+	glutCreateWindow("绑定应用程序空闲时事件");		// 完成以上3个以后就可以定义窗体了
 	
 	// 注册回调函数
 	// register callbacks
@@ -90,13 +86,10 @@ void GlutIdleFunc::displayCall()
 
 void GlutIdleFunc::changeSizeCall(int w, int h) {
 
-#if 0
 	// Prevent a divide by zero, when window is too short
 	// (you cant make a window of zero width).
 	if(h == 0) h = 1;
 	float ratio = 1.0 * w / h;
-
-	glViewport(0, 0, w, h);
 
 	// Use the Projection Matrix
 	glMatrixMode(GL_PROJECTION);
@@ -104,17 +97,14 @@ void GlutIdleFunc::changeSizeCall(int w, int h) {
 	// Reset Matrix
 	glLoadIdentity();
 
-	gluOrtho2D(0, 1, 0, 1);  //using normalized device coordinates 
-	//glViewport(0, 0, 800, 800);
-
 	// Set the viewport to be the entire window
-	//glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+	glViewport(0, 0, w, h);
 
 	// Set the correct perspective.
-	//gluPerspective(45,ratio,1,100);
+	//gluPerspective(45,1,1,100);	-- 默认的设置参数？
+	gluPerspective(45,ratio,1,100);
+
 
 	// Get Back to the Modelview
 	glMatrixMode(GL_MODELVIEW);
-
-#endif
 }
