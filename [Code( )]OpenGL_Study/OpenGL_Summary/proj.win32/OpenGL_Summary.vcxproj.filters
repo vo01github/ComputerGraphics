@@ -39,6 +39,9 @@
     <Filter Include="Classes\03键盘+特殊键">
       <UniqueIdentifier>{23a842d9-8d6e-4ddf-b4c0-5e056fe3c90b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\04移动镜头">
+      <UniqueIdentifier>{228a5c6c-a824-4cdf-922f-b391ca145c87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -71,6 +74,9 @@
     <ClInclude Include="..\Classes\[glutKeyboardFunc].h">
       <Filter>Classes\03键盘+特殊键</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\[gluLookAt].h">
+      <Filter>Classes\04移动镜头</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -99,6 +105,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\[glutKeyboardFunc].cpp">
       <Filter>Classes\03键盘+特殊键</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\[gluLookAt].cpp">
+      <Filter>Classes\04移动镜头</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

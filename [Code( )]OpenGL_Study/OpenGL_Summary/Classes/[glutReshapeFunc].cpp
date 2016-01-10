@@ -26,7 +26,7 @@ int GlutReshapeFunc::init( int argc,_TCHAR* argv[] )
 	glutInitWindowPosition(100, 100);				// 定义窗体的位置
 	glutInitWindowSize(800, 800);					// 定义窗体的大小
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);	// 定义显示模式
-	glutCreateWindow("全局地图和轨迹显示");			// 完成以上3个以后就可以定义窗体了
+	glutCreateWindow("改变窗体大小");			// 完成以上3个以后就可以定义窗体了
 	
 	// 回调函数注册
 	glutDisplayFunc(displayCall);					// 注册 渲染 回调函数
@@ -43,22 +43,20 @@ void GlutReshapeFunc::displayCall()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glBegin(GL_TRIANGLES);
-	glVertex3f(-0.5,-0.5,0.0);
-	glVertex3f(0.5,0.0,0.0);
-	glVertex3f(0.0,0.5,0.0);
+	glVertex3f(-2.5,-2.5,-5.0);
+	glVertex3f(2.5,0.0,-5.0);
+	glVertex3f(0.0,2.5,-5.0);
 	glEnd();
 	glFlush();
 }
 
 void GlutReshapeFunc::changeSizeCall(int w, int h) {
 
-#if 0
+
 	// Prevent a divide by zero, when window is too short
 	// (you cant make a window of zero width).
 	if(h == 0) h = 1;
 	float ratio = 1.0 * w / h;
-
-	glViewport(0, 0, w, h);
 
 	// Use the Projection Matrix
 	glMatrixMode(GL_PROJECTION);
@@ -66,19 +64,16 @@ void GlutReshapeFunc::changeSizeCall(int w, int h) {
 	// Reset Matrix
 	glLoadIdentity();
 
-	gluOrtho2D(0, 1, 0, 1);  //using normalized device coordinates 
-	//glViewport(0, 0, 800, 800);
-
 	// Set the viewport to be the entire window
-	//glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+	glViewport(0, 0, w, h);
 
 	// Set the correct perspective.
-	//gluPerspective(45,ratio,1,100);
+	gluPerspective(45,ratio,1,100);
 
 	// Get Back to the Modelview
 	glMatrixMode(GL_MODELVIEW);
 
-#endif
+
 }
 
 
