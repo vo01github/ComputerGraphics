@@ -17,7 +17,7 @@ using namespace std;
 #include "[glutIdleFunc].h"
 #include "[glutKeyboardFunc].h"
 #include "[gluLookAt].h"
-
+#include "[MatrixPROJECTION].h"
 
 OpenGLwindows* OpenGLwindows::m_pSceneManager = NULL;
 
@@ -37,7 +37,7 @@ OpenGLwindows* OpenGLwindows::sharedSceneManager()
 //=========================================================================
 int OpenGLwindows::windowsInit(int argc,_TCHAR* argv[])  
 {  
-	GluLookAt::init(argc, argv);
+	MatrixPROJECTION::init(argc, argv);
 	return 0;  
 }  
 

@@ -163,7 +163,7 @@ void GluLookAt::changeSizeCall(int w, int h)
 	float ratio = 1.0 * w / h;
 
 	// Use the Projection Matrix
-	glMatrixMode(GL_PROJECTION);
+	glMatrixMode(GL_PROJECTION);		// 设置当前矩阵 为 投影矩阵
 
 	// Reset Matrix
 	glLoadIdentity();
@@ -171,9 +171,9 @@ void GluLookAt::changeSizeCall(int w, int h)
 	// Set the viewport to be the entire window
 	glViewport(0, 0, w, h);
 
-	// Set the correct perspective.
-	gluPerspective(45,ratio,1,100);
+	// Set the correct perspective.	
+	gluPerspective(45,ratio,1,100);		// 对投影矩阵进行操作
 
 	// Get Back to the Modelview
-	glMatrixMode(GL_MODELVIEW);
+	glMatrixMode(GL_MODELVIEW);			// 设置当前矩阵 为 模型视景矩阵
 }

@@ -42,7 +42,10 @@
     <Filter Include="Classes\04移动镜头">
       <UniqueIdentifier>{228a5c6c-a824-4cdf-922f-b391ca145c87}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\09矩阵变换">
+    <Filter Include="Classes\08投影矩阵">
+      <UniqueIdentifier>{17d9238b-26f0-4656-adc9-acab84326c04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\09变换矩阵%28平移,旋转,缩放%29">
       <UniqueIdentifier>{9b47053a-f4c1-4ba8-b02b-157e469c4907}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -80,6 +83,9 @@
     <ClInclude Include="..\Classes\[gluLookAt].h">
       <Filter>Classes\04移动镜头</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\[MatrixPROJECTION].h">
+      <Filter>Classes\08投影矩阵</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -111,6 +117,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\[gluLookAt].cpp">
       <Filter>Classes\04移动镜头</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\[MatrixPROJECTION].cpp">
+      <Filter>Classes\08投影矩阵</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
